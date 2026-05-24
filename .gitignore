@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+
+# Node / Frontend
+node_modules/
+dist/
+.vite/
+*.local
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# App data (passwords, sessions, uploads)
+backend/data/accounts.json
+backend/data/sessions/
+backend/data/uploads/
+backend/data/debug/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs & cache
+*.log
+.cache/
+.pytest_cache/
+.mypy_cache/
+
+# Playwright
+playwright-report/
+test-results/

@@ -12,7 +12,7 @@ class AccountCreate(BaseModel):
     name: str
     email: str
     password: str
-    headless: Optional[bool] = False
+    headless: Optional[bool] = True
 
 
 class AccountUpdate(BaseModel):
@@ -34,9 +34,9 @@ def list_accounts():
 @router.post("/")
 def create_account(body: AccountCreate):
     accounts = read_json("accounts")
-    # Check duplicate email
+    # Check duplicate login
     if any(a["email"] == body.email for a in accounts):
-        raise HTTPException(400, "Email đã tồn tại")
+        raise HTTPException(400, "Số điện thoại / email đăng nhập đã tồn tại")
     new_account = {
         "id": str(uuid.uuid4()),
         "name": body.name,

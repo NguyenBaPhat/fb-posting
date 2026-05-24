@@ -14,6 +14,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
 )
+logging.getLogger("services.fb_poster").setLevel(logging.DEBUG)
 
 # Global APScheduler instance (imported by scheduler router)
 scheduler = BackgroundScheduler(timezone="Asia/Ho_Chi_Minh")
@@ -49,17 +50,19 @@ uploads_dir.mkdir(parents=True, exist_ok=True)
 app.mount("/uploads", StaticFiles(directory=str(uploads_dir)), name="uploads")
 
 # Routers
-app.include_router(accounts.router)
-app.include_router(groups.router)
-app.include_router(posts.router)
-app.include_router(scheduler_router.router)
-
-
-@app.get("/")
-def root():
-    return {"message": "FB Group Auto-Poster API đang chạy 🚀"}
+app.include_router(accounts.router, prefix="/api")
+app.include_router(groups.router, prefix="/api")
+app.include_router(posts.router, prefix="/api")
+app.include_router(scheduler_router.router, prefix="/api")
 
 
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+# Serve Frontend static files
+frontend_dir = Path(__file__).parent.parent / "frontend" / "dist"
+frontend_dir.mkdir(parents=True, exist_ok=True)
+app.mount("/", StaticFiles(directory=str(frontend_dir), html=True), name="frontend")
+

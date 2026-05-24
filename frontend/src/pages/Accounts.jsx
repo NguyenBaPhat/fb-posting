@@ -45,11 +45,17 @@ const s = {
     border: '1.5px solid #e4e6ea', fontSize: 14, outline: 'none',
   },
   row: { display: 'flex', gap: 10, marginTop: 20 },
-  checkRow: { display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 },
+  checkRow: { display: 'flex', alignItems: 'flex-start', gap: 8, marginBottom: 10 },
+  radioGroup: { marginBottom: 16 },
+  radioHint: { fontSize: 12, color: '#65676b', marginTop: 4, marginLeft: 24 },
+  badgeHidden: {
+    fontSize: 11, padding: '2px 8px', borderRadius: 12,
+    background: '#f0f2f5', color: '#65676b', fontWeight: 600, marginLeft: 8,
+  },
   empty: { textAlign: 'center', padding: 60, color: '#65676b' },
 }
 
-const initForm = { name: '', email: '', password: '', headless: false }
+const initForm = { name: '', email: '', password: '', headless: true }
 
 export default function Accounts() {
   const [accounts, setAccounts] = useState([])
@@ -69,7 +75,7 @@ export default function Accounts() {
   const submit = async (e) => {
     e.preventDefault()
     if (!form.name || !form.email || !form.password) {
-      toast.error('Vui lòng điền đầy đủ thông tin')
+      toast.error('Vui lòng điền tên, SĐT/email và mật khẩu')
       return
     }
     setLoading(true)
@@ -116,7 +122,11 @@ export default function Accounts() {
               <div style={s.info}>
                 <div style={s.name}>
                   {acc.name}
-                  {acc.headless && <span style={s.badge}>Headless</span>}
+                  {acc.headless !== false ? (
+                    <span style={s.badge}>Chạy ngầm</span>
+                  ) : (
+                    <span style={{ ...s.badge, background: '#fff3cd', color: '#856404' }}>Hiện trình duyệt</span>
+                  )}
                 </div>
                 <div style={s.email}>{acc.email}</div>
               </div>
@@ -139,20 +149,43 @@ export default function Accounts() {
                   value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} />
               </div>
               <div style={s.field}>
-                <label style={s.label}>Email / Số điện thoại</label>
-                <input style={s.input} placeholder="email@gmail.com"
+                <label style={s.label}>Số điện thoại / Email đăng nhập</label>
+                <input style={s.input} placeholder="038xxxxxxxx hoặc email@gmail.com"
                   value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} />
+                <div style={{ fontSize: 12, color: '#65676b', marginTop: 4 }}>
+                  Dùng SĐT hoặc email bạn hay đăng nhập Facebook
+                </div>
               </div>
               <div style={s.field}>
-                <label style={s.label}>Mật khẩu</label>
+                <label style={s.label}>Mật khẩu Facebook</label>
                 <input style={s.input} type="password" placeholder="••••••••"
                   value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} />
               </div>
-              <div style={s.checkRow}>
-                <input type="checkbox" id="headless" checked={form.headless}
-                  onChange={e => setForm({ ...form, headless: e.target.checked })} />
-                <label htmlFor="headless" style={{ fontSize: 14, cursor: 'pointer' }}>
-                  Chạy ẩn (Headless) — không hiện cửa sổ trình duyệt
+              <div style={s.radioGroup}>
+                <label style={{ ...s.label, marginBottom: 8 }}>Chế độ trình duyệt</label>
+                <label style={s.checkRow}>
+                  <input
+                    type="radio"
+                    name="browserMode"
+                    checked={form.headless === true}
+                    onChange={() => setForm({ ...form, headless: true })}
+                  />
+                  <div>
+                    <div style={{ fontSize: 14 }}>Chạy ngầm</div>
+                    <div style={s.radioHint}>Không hiện cửa sổ Chrome — phù hợp đăng tự động</div>
+                  </div>
+                </label>
+                <label style={s.checkRow}>
+                  <input
+                    type="radio"
+                    name="browserMode"
+                    checked={form.headless === false}
+                    onChange={() => setForm({ ...form, headless: false })}
+                  />
+                  <div>
+                    <div style={{ fontSize: 14 }}>Hiện trình duyệt</div>
+                    <div style={s.radioHint}>Mở popup Chrome — xem đăng nhập, xử lý 2FA nếu cần</div>
+                  </div>
                 </label>
               </div>
               <div style={s.row}>

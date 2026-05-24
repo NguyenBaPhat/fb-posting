@@ -19,6 +19,9 @@ const s = {
   toolRow: { display: 'flex', gap: 10, marginTop: 12, alignItems: 'center', flexWrap: 'wrap' },
   uploadBtn: { display: 'flex', alignItems: 'center', gap: 6, padding: '8px 14px', borderRadius: 8, border: '1.5px dashed #1877f2', background: '#e7f3ff', color: '#1877f2', cursor: 'pointer', fontSize: 13, fontWeight: 600 },
   scheduleRow: { display: 'flex', alignItems: 'center', gap: 10, padding: '12px 0', borderTop: '1px solid #f0f2f5', marginTop: 12 },
+  browserRow: { padding: '12px 0', borderTop: '1px solid #f0f2f5', marginTop: 12 },
+  browserOption: { display: 'flex', alignItems: 'flex-start', gap: 8, marginBottom: 8, cursor: 'pointer', fontSize: 13 },
+  browserHint: { fontSize: 12, color: '#65676b', marginLeft: 24 },
   scheduleInput: { padding: '8px 12px', borderRadius: 8, border: '1.5px solid #e4e6ea', fontSize: 13, outline: 'none' },
   actionRow: { display: 'flex', gap: 12, justifyContent: 'flex-end' },
   btn: { padding: '10px 24px', borderRadius: 8, border: 'none', cursor: 'pointer', fontWeight: 700, fontSize: 14 },
@@ -39,18 +42,26 @@ export default function Composer() {
   const [groups, setGroups] = useState([])
   const [selAccounts, setSelAccounts] = useState([])
   const [selGroups, setSelGroups] = useState([])
-  const [content, setContent] = useState('')
+  const [charCount, setCharCount] = useState(0)
   const [image, setImage] = useState(null)
   const [imagePreview, setImagePreview] = useState(null)
   const [scheduleAt, setScheduleAt] = useState('')
   const [useSchedule, setUseSchedule] = useState(false)
+  const [headless, setHeadless] = useState(true)
   const [posting, setPosting] = useState(false)
   const fileRef = useRef()
+  const contentRef = useRef()
 
   useEffect(() => {
     getAccounts().then(r => setAccounts(r.data)).catch(() => {})
     getGroups().then(r => setGroups(r.data)).catch(() => {})
   }, [])
+
+  const getContent = () => (contentRef.current?.value ?? '').trim()
+
+  const syncCharCount = () => {
+    setCharCount(contentRef.current?.value?.length ?? 0)
+  }
 
   const toggleAcc = (id) => setSelAccounts(p => p.includes(id) ? p.filter(x => x !== id) : [...p, id])
   const toggleGroup = (id) => setSelGroups(p => p.includes(id) ? p.filter(x => x !== id) : [...p, id])
@@ -64,23 +75,50 @@ export default function Composer() {
 
   const removeImage = () => { setImage(null); setImagePreview(null); fileRef.current.value = '' }
 
-  const canPost = content.trim() && selAccounts.length > 0 && selGroups.length > 0
+  const validatePost = () => {
+    if (selAccounts.length === 0) return 'Chọn ít nhất 1 tài khoản'
+    if (selGroups.length === 0) return 'Chọn ít nhất 1 nhóm'
+    const text = getContent()
+    if (!text) return 'Vui lòng nhập nội dung bài viết'
+    return null
+  }
+
+  const canPost = selAccounts.length > 0 && selGroups.length > 0 && charCount > 0
 
   const handlePost = async () => {
-    if (!canPost) { toast.error('Chọn ít nhất 1 tài khoản, 1 nhóm và nhập nội dung'); return }
+    const err = validatePost()
+    if (err) {
+      console.warn('[Post] Validation failed:', err, {
+        accounts: selAccounts.length,
+        groups: selGroups.length,
+        charCount,
+        contentPreview: getContent().slice(0, 50),
+      })
+      toast.error(err)
+      return
+    }
+    const postContent = getContent()
+    console.log('[Post] Gửi API /posts/send', {
+      accounts: selAccounts,
+      groups: selGroups,
+      contentLen: postContent.length,
+      headless,
+    })
     setPosting(true)
     try {
       const fd = new FormData()
-      fd.append('content', content)
+      fd.append('content', postContent)
       fd.append('account_ids', selAccounts.join(','))
       fd.append('group_ids', selGroups.join(','))
+      fd.append('headless', headless ? 'true' : 'false')
       if (image) fd.append('image', image)
       const res = await sendPost(fd)
       const { success_count, total } = res.data
       if (success_count === total) toast.success(`✅ Đăng bài thành công ${success_count}/${total} nhóm!`)
       else if (success_count > 0) toast.success(`⚠️ Thành công ${success_count}/${total} nhóm`)
       else toast.error(`❌ Đăng bài thất bại cả ${total} nhóm`)
-      setContent('')
+      if (contentRef.current) contentRef.current.value = ''
+      setCharCount(0)
       removeImage()
     } catch (err) {
       toast.error(err.response?.data?.detail || 'Lỗi đăng bài')
@@ -88,18 +126,28 @@ export default function Composer() {
   }
 
   const handleSchedule = async () => {
-    if (!canPost) { toast.error('Chọn ít nhất 1 tài khoản, 1 nhóm và nhập nội dung'); return }
+    const err = validatePost()
+    if (err) {
+      console.warn('[Schedule] Validation failed:', err)
+      toast.error(err)
+      return
+    }
     if (!scheduleAt) { toast.error('Vui lòng chọn thời gian đăng bài'); return }
+    const postContent = getContent()
+    console.log('[Schedule] Gửi API /schedules/', { accounts: selAccounts, groups: selGroups })
     try {
-      await createSchedule({
-        content,
-        account_ids: selAccounts,
-        group_ids: selGroups,
-        scheduled_at: new Date(scheduleAt).toISOString().slice(0, 19),
-        image_path: null,
-      })
+      const fd = new FormData()
+      fd.append('content', postContent)
+      fd.append('account_ids', selAccounts.join(','))
+      fd.append('group_ids', selGroups.join(','))
+      fd.append('scheduled_at', scheduleAt.length === 16 ? `${scheduleAt}:00` : scheduleAt)
+      fd.append('headless', headless ? 'true' : 'false')
+      if (image) fd.append('image', image)
+      await createSchedule(fd)
       toast.success('✅ Đã lên lịch đăng bài!')
-      setContent('')
+      if (contentRef.current) contentRef.current.value = ''
+      setCharCount(0)
+      removeImage()
       setUseSchedule(false)
       setScheduleAt('')
     } catch (err) {
@@ -114,7 +162,9 @@ export default function Composer() {
           <div style={{ fontSize: 48, marginBottom: 16 }}>⏳</div>
           <div style={{ fontSize: 20, fontWeight: 700 }}>Đang đăng bài...</div>
           <div style={{ fontSize: 14, marginTop: 8, opacity: 0.8 }}>
-            Trình duyệt đang mở, vui lòng không đóng cửa sổ
+            {headless
+              ? 'Hệ thống đang tự động đăng nhập và đăng bài (chạy ngầm)...'
+              : 'Chrome đang mở — nếu có xác minh 2 bước, hãy hoàn thành trong cửa sổ đó (tối đa 5 phút)'}
           </div>
         </div>
       )}
@@ -128,13 +178,25 @@ export default function Composer() {
           {accounts.length === 0 ? (
             <div style={{ color: '#65676b', fontSize: 13 }}>Chưa có tài khoản. <a href="/accounts" style={{ color: '#1877f2' }}>Thêm ngay</a></div>
           ) : accounts.map(acc => (
-            <label key={acc.id} style={s.checkItem}>
-              <input type="checkbox" checked={selAccounts.includes(acc.id)} onChange={() => toggleAcc(acc.id)} />
+            <div
+              key={acc.id}
+              style={s.checkItem}
+              role="button"
+              tabIndex={0}
+              onClick={() => toggleAcc(acc.id)}
+              onKeyDown={(e) => e.key === 'Enter' && toggleAcc(acc.id)}
+            >
+              <input
+                type="checkbox"
+                readOnly
+                tabIndex={-1}
+                checked={selAccounts.includes(acc.id)}
+              />
               <div>
                 <div style={s.checkLabel}>{acc.name}</div>
                 <div style={s.checkSub}>{acc.email}</div>
               </div>
-            </label>
+            </div>
           ))}
           <div style={s.selCount}>{selAccounts.length} tài khoản được chọn</div>
         </div>
@@ -144,13 +206,25 @@ export default function Composer() {
           {groups.length === 0 ? (
             <div style={{ color: '#65676b', fontSize: 13 }}>Chưa có nhóm. <a href="/groups" style={{ color: '#1877f2' }}>Thêm ngay</a></div>
           ) : groups.map(g => (
-            <label key={g.id} style={s.checkItem}>
-              <input type="checkbox" checked={selGroups.includes(g.id)} onChange={() => toggleGroup(g.id)} />
+            <div
+              key={g.id}
+              style={s.checkItem}
+              role="button"
+              tabIndex={0}
+              onClick={() => toggleGroup(g.id)}
+              onKeyDown={(e) => e.key === 'Enter' && toggleGroup(g.id)}
+            >
+              <input
+                type="checkbox"
+                readOnly
+                tabIndex={-1}
+                checked={selGroups.includes(g.id)}
+              />
               <div>
                 <div style={s.checkLabel}>{g.name}</div>
                 <div style={s.checkSub} title={g.url}>{g.url.replace('https://www.facebook.com/groups/', 'groups/')}</div>
               </div>
-            </label>
+            </div>
           ))}
           <div style={s.selCount}>{selGroups.length} nhóm được chọn</div>
         </div>
@@ -160,12 +234,14 @@ export default function Composer() {
       <div style={s.composer}>
         <div style={s.sectionTitle}><span>📝</span> Nội dung bài viết</div>
         <textarea
+          ref={contentRef}
           style={s.textarea}
           placeholder="Nhập nội dung bài viết ở đây..."
-          value={content}
-          onChange={e => setContent(e.target.value)}
+          defaultValue=""
+          onInput={syncCharCount}
+          onCompositionEnd={syncCharCount}
         />
-        <div style={{ fontSize: 12, color: '#8a8d91', marginTop: 4, textAlign: 'right' }}>{content.length} ký tự</div>
+        <div style={{ fontSize: 12, color: '#8a8d91', marginTop: 4, textAlign: 'right' }}>{charCount} ký tự</div>
 
         {imagePreview && (
           <div style={s.imagePreview}>
@@ -198,13 +274,51 @@ export default function Composer() {
           </div>
         )}
 
+        <div style={s.browserRow}>
+          <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 8 }}>🌐 Chế độ trình duyệt</div>
+          <label style={s.browserOption}>
+            <input
+              type="radio"
+              name="browserMode"
+              checked={headless === true}
+              onChange={() => setHeadless(true)}
+            />
+            <div>
+              <div>Chạy ngầm</div>
+              <div style={s.browserHint}>Không hiện cửa sổ Chrome</div>
+            </div>
+          </label>
+          <label style={s.browserOption}>
+            <input
+              type="radio"
+              name="browserMode"
+              checked={headless === false}
+              onChange={() => setHeadless(false)}
+            />
+            <div>
+              <div>Hiện trình duyệt</div>
+              <div style={s.browserHint}>Mở popup Chrome để xem & xử lý 2FA nếu cần</div>
+            </div>
+          </label>
+        </div>
+
         <div style={{ ...s.actionRow, marginTop: 16 }}>
           {useSchedule ? (
-            <button style={{ ...s.btn, ...s.btnSchedule, ...(canPost ? {} : s.btnDisabled) }} onClick={handleSchedule}>
+            <button
+              type="button"
+              style={{ ...s.btn, ...s.btnSchedule, ...(canPost ? {} : s.btnDisabled) }}
+              onClick={handleSchedule}
+              disabled={posting}
+            >
               🕐 Lên lịch đăng
             </button>
           ) : (
-            <button style={{ ...s.btn, ...s.btnPost, ...(canPost ? {} : s.btnDisabled) }} onClick={handlePost} disabled={posting}>
+            <button
+              type="button"
+              style={{ ...s.btn, ...s.btnPost, ...(canPost ? {} : s.btnDisabled) }}
+              onClick={handlePost}
+              disabled={posting}
+            >
               {posting ? '⏳ Đang đăng...' : '🚀 Đăng ngay'}
             </button>
           )}
