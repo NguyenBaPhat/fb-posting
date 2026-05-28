@@ -10,6 +10,9 @@ FILES = {
     "groups": DATA_DIR / "groups.json",
     "posts": DATA_DIR / "posts.json",
     "schedules": DATA_DIR / "schedules.json",
+    "comments": DATA_DIR / "comments.json",
+    "templates": DATA_DIR / "templates.json",
+    "managed_posts": DATA_DIR / "managed_posts.json",
 }
 
 

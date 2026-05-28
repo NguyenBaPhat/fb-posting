@@ -5,6 +5,8 @@ from pathlib import Path
 from typing import Optional
 from zoneinfo import ZoneInfo
 
+from apscheduler.triggers.cron import CronTrigger
+from apscheduler.triggers.interval import IntervalTrigger
 from fastapi import APIRouter, File, Form, HTTPException, UploadFile
 
 from services.fb_poster import post_to_multiple
@@ -15,6 +17,84 @@ VN_TZ = ZoneInfo("Asia/Ho_Chi_Minh")
 UPLOADS_DIR = Path(__file__).parent.parent / "data" / "uploads"
 UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
 
+RECURRENCE_LABELS = {
+    "once": "Một lần",
+    "hourly": "Mỗi N giờ",
+    "daily": "Hằng ngày",
+    "weekly": "Hằng tuần",
+    "every_n_days": "Mỗi N ngày",
+}
+
+
+def _parse_interval(raw: Optional[str], default: int = 1) -> int:
+    try:
+        n = int(raw or default)
+        return max(1, min(n, 168))
+    except (TypeError, ValueError):
+        return default
+
+
+def _register_schedule_job(app_scheduler, schedule: dict, scheduled_dt: datetime) -> None:
+    sid = schedule["id"]
+    recurrence = schedule.get("recurrence") or "once"
+    interval = schedule.get("recurrence_interval") or 1
+
+    try:
+        app_scheduler.remove_job(sid)
+    except Exception:
+        pass
+
+    if recurrence == "once":
+        app_scheduler.add_job(
+            _run_scheduled_post,
+            "date",
+            run_date=scheduled_dt,
+            args=[sid],
+            id=sid,
+            replace_existing=True,
+        )
+    elif recurrence == "hourly":
+        app_scheduler.add_job(
+            _run_scheduled_post,
+            IntervalTrigger(hours=interval, start_date=scheduled_dt, timezone=VN_TZ),
+            args=[sid],
+            id=sid,
+            replace_existing=True,
+        )
+    elif recurrence == "daily":
+        app_scheduler.add_job(
+            _run_scheduled_post,
+            CronTrigger(
+                hour=scheduled_dt.hour,
+                minute=scheduled_dt.minute,
+                timezone=VN_TZ,
+            ),
+            args=[sid],
+            id=sid,
+            replace_existing=True,
+        )
+    elif recurrence == "weekly":
+        app_scheduler.add_job(
+            _run_scheduled_post,
+            CronTrigger(
+                day_of_week=scheduled_dt.weekday(),
+                hour=scheduled_dt.hour,
+                minute=scheduled_dt.minute,
+                timezone=VN_TZ,
+            ),
+            args=[sid],
+            id=sid,
+            replace_existing=True,
+        )
+    elif recurrence == "every_n_days":
+        app_scheduler.add_job(
+            _run_scheduled_post,
+            IntervalTrigger(days=interval, start_date=scheduled_dt, timezone=VN_TZ),
+            args=[sid],
+            id=sid,
+            replace_existing=True,
+        )
+
 
 @router.get("/")
 def list_schedules():
@@ -24,12 +104,18 @@ def list_schedules():
 
 @router.post("/")
 async def create_schedule(
-    content: str = Form(...),
+    content: str = Form(""),
     account_ids: str = Form(...),
     group_ids: str = Form(...),
     scheduled_at: str = Form(...),
     headless: Optional[str] = Form(None),
     image: Optional[UploadFile] = File(None),
+    recurrence: str = Form("once"),
+    recurrence_interval: Optional[str] = Form("1"),
+    post_type: Optional[str] = Form("normal"),
+    mp_title: Optional[str] = Form(None),
+    mp_price: Optional[str] = Form(None),
+    mp_condition: Optional[str] = Form("Mới"),
 ):
     selected_account_ids = [i.strip() for i in account_ids.split(",") if i.strip()]
     selected_group_ids = [i.strip() for i in group_ids.split(",") if i.strip()]
@@ -53,8 +139,11 @@ async def create_schedule(
     else:
         scheduled_dt = scheduled_dt.astimezone(VN_TZ)
 
-    if scheduled_dt <= datetime.now(VN_TZ):
+    if scheduled_dt <= datetime.now(VN_TZ) and (recurrence or "once") == "once":
         raise HTTPException(400, "Thời gian phải ở trong tương lai")
+
+    rec = recurrence if recurrence in RECURRENCE_LABELS else "once"
+    interval = _parse_interval(recurrence_interval, 1)
 
     image_path = None
     if image and image.filename:
@@ -69,6 +158,14 @@ async def create_schedule(
     if headless is not None:
         run_headless = headless.lower() in ("true", "1", "yes")
 
+    marketplace_data = None
+    if post_type == "marketplace" and mp_title and mp_title.strip():
+        marketplace_data = {
+            "title": mp_title.strip(),
+            "price": (mp_price or "").strip(),
+            "condition": (mp_condition or "Mới").strip(),
+        }
+
     schedules = read_json("schedules")
     new_schedule = {
         "id": str(uuid.uuid4()),
@@ -78,23 +175,21 @@ async def create_schedule(
         "scheduled_at": scheduled_at,
         "image_path": image_path,
         "headless": run_headless,
-        "status": "pending",    # pending | running | done | failed
+        "recurrence": rec,
+        "recurrence_interval": interval,
+        "recurrence_label": RECURRENCE_LABELS.get(rec, rec),
+        "post_type": post_type or "normal",
+        "marketplace_data": marketplace_data,
+        "status": "active" if rec != "once" else "pending",
+        "run_count": 0,
         "created_at": datetime.now(VN_TZ).isoformat(),
         "result": None,
     }
     schedules.append(new_schedule)
     write_json("schedules", schedules)
 
-    # Register with APScheduler
     from main import scheduler as app_scheduler
-    app_scheduler.add_job(
-        _run_scheduled_post,
-        "date",
-        run_date=scheduled_dt,
-        args=[new_schedule["id"]],
-        id=new_schedule["id"],
-        replace_existing=True,
-    )
+    _register_schedule_job(app_scheduler, new_schedule, scheduled_dt)
 
     return new_schedule
 
@@ -106,7 +201,6 @@ def delete_schedule(schedule_id: str):
     if not schedule:
         raise HTTPException(404, "Lịch không tồn tại")
 
-    # Remove from APScheduler
     try:
         from main import scheduler as app_scheduler
         app_scheduler.remove_job(schedule_id)
@@ -150,10 +244,17 @@ def _run_scheduled_post(schedule_id: str):
                 content=schedule["content"],
                 image_path=schedule.get("image_path"),
                 headless=run_headless,
+                marketplace_data=schedule.get("marketplace_data"),
             )
         )
-        schedule["status"] = "done"
+        recurrence = schedule.get("recurrence") or "once"
+        schedule["run_count"] = schedule.get("run_count", 0) + 1
+        schedule["last_run_at"] = datetime.now(VN_TZ).isoformat()
         schedule["result"] = results
+        if recurrence == "once":
+            schedule["status"] = "done"
+        else:
+            schedule["status"] = "active"
     except Exception as e:
         schedule["status"] = "failed"
         schedule["result"] = [{"success": False, "message": str(e)}]

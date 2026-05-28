@@ -5,6 +5,9 @@ import Accounts from './pages/Accounts'
 import Groups from './pages/Groups'
 import Composer from './pages/Composer'
 import History from './pages/History'
+import Comments from './pages/Comments'
+import PostsManager from './pages/PostsManager'
+import Browser from './pages/Browser'
 
 export default function App() {
   return (
@@ -19,6 +22,9 @@ export default function App() {
             <Route path="/groups" element={<Groups />} />
             <Route path="/composer" element={<Composer />} />
             <Route path="/history" element={<History />} />
+            <Route path="/comments" element={<Comments />} />
+            <Route path="/posts-manager" element={<PostsManager />} />
+            <Route path="/browser" element={<Browser />} />
           </Routes>
         </main>
       </div>

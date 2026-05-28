@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom'
 
 const NAV = [
-  { to: '/composer', icon: '✍️', label: 'Soạn bài' },
-  { to: '/accounts', icon: '👤', label: 'Tài khoản FB' },
-  { to: '/groups',   icon: '👥', label: 'Nhóm FB' },
-  { to: '/history',  icon: '📋', label: 'Lịch sử' },
+  { to: '/composer',      icon: '✍️',  label: 'Soạn bài' },
+  { to: '/posts-manager', icon: '🗂️',  label: 'Quản lý bài đăng' },
+  { to: '/accounts',      icon: '👤',  label: 'Tài khoản FB' },
+  { to: '/groups',        icon: '👥',  label: 'Nhóm FB' },
+  { to: '/history',       icon: '📋',  label: 'Lịch sử' },
 ]
 
 const styles = {

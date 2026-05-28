@@ -48,6 +48,7 @@ export const deleteGroup = (id) => api.delete(`/groups/${id}`)
 // ── Posts ─────────────────────────────────────────────────
 export const sendPost = (formData) =>
   api.post('/posts/send', formData)
+export const getPostJob = (jobId) => api.get(`/posts/jobs/${jobId}`)
 export const getHistory = () => api.get('/posts/history')
 export const deleteHistory = (id) => api.delete(`/posts/history/${id}`)
 
@@ -55,3 +56,24 @@ export const deleteHistory = (id) => api.delete(`/posts/history/${id}`)
 export const getSchedules = () => api.get('/schedules/')
 export const createSchedule = (formData) => api.post('/schedules/', formData)
 export const deleteSchedule = (id) => api.delete(`/schedules/${id}`)
+
+// ── Comments ──────────────────────────────────────────────
+export const getCommentTargets = () => api.get('/comments/targets')
+export const sendComments = (formData) => api.post('/comments/send', formData)
+export const getCommentJob = (jobId) => api.get(`/comments/jobs/${jobId}`)
+export const getCommentHistory = () => api.get('/comments/history')
+
+// ── Posts Manager ─────────────────────────────────────────
+export const getSavedPosts = () => api.get('/posts-manager/saved-posts')
+export const fetchManagedPosts = (formData) => api.post('/posts-manager/fetch', formData)
+export const deleteManagedPosts = (formData) => api.post('/posts-manager/delete', formData)
+export const getManagerJob = (jobId) => api.get(`/posts-manager/jobs/${jobId}`)
+
+// ── Templates ─────────────────────────────────────────────
+export const getTemplates = () => api.get('/templates/')
+export const saveTemplate = (formData) => api.post('/templates/', formData)
+export const deleteTemplate = (id) => api.delete(`/templates/${id}`)
+export const templateImageUrl = (filename) => `/api/templates/image/${filename}`
+
+// ── Browser (iframe proxy) ────────────────────────────────
+// Proxy URL is constructed directly in Browser.jsx — no API call needed

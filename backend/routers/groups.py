@@ -12,12 +12,14 @@ class GroupCreate(BaseModel):
     name: str
     url: str
     description: Optional[str] = ""
+    post_type: Optional[str] = "normal"
 
 
 class GroupUpdate(BaseModel):
     name: Optional[str] = None
     url: Optional[str] = None
     description: Optional[str] = None
+    post_type: Optional[str] = None
 
 
 @router.get("/")
@@ -30,11 +32,13 @@ def create_group(body: GroupCreate):
     groups = read_json("groups")
     if any(g["url"] == body.url for g in groups):
         raise HTTPException(400, "URL group đã tồn tại")
+    post_type = body.post_type if body.post_type in ("normal", "marketplace") else "normal"
     new_group = {
         "id": str(uuid.uuid4()),
         "name": body.name,
         "url": body.url,
         "description": body.description,
+        "post_type": post_type,
         "active": True,
     }
     groups.append(new_group)
@@ -53,6 +57,8 @@ def update_group(group_id: str, body: GroupUpdate):
                 g["url"] = body.url
             if body.description is not None:
                 g["description"] = body.description
+            if body.post_type is not None and body.post_type in ("normal", "marketplace"):
+                g["post_type"] = body.post_type
             write_json("groups", groups)
             return g
     raise HTTPException(404, "Group không tồn tại")

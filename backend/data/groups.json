@@ -1,16 +1,2370 @@
 [
   {
-    "id": "5c418603-c2a5-4681-92d1-cab94113af36",
+    "id": "4becf85a-fada-4028-9c20-4330cd64e9d8",
+    "name": "THANH LÝ NỘI THẤT VĂN PHÒNG TPHCM",
+    "url": "https://www.facebook.com/groups/149079868252034",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "878e021b-0d75-47e6-b3ca-d96d6e48c798",
+    "name": "Mua & Bán, Thanh Lý Đồ Dùng Văn Phòng, Thanh Lý Đồ Văn Phòng ,TPHCM",
+    "url": "https://www.facebook.com/groups/248732314483285",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "1184967a-1a23-4f60-9734-1043cff39917",
+    "name": "Thanh Lý đồ dùng sinh viên TP HCM",
+    "url": "https://www.facebook.com/groups/1174050843497379",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "b10fd90c-7f4d-4ca1-942b-e2d885ea9ddf",
+    "name": "HỘI THANH LÝ ĐỒ DÙNG CŨ,MỚI QUẬN 7-NHÀ BÈ TPHCM",
+    "url": "https://www.facebook.com/groups/796578605258854",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "85919a9d-4f93-4083-8950-66ecd4a539d7",
+    "name": "Thanh Lý Đồ Cũ Tân Phú",
+    "url": "https://www.facebook.com/groups/1054556302447512",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "be0315b6-4c99-44bf-9f61-7b59a3d5bb28",
+    "name": "Thanh Lý Đồ Dùng VINHOMES GRAND PARK",
+    "url": "https://www.facebook.com/groups/964032188728125",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "99c8150e-1c30-4a86-b018-85dfcd7fc4ea",
+    "name": "Thanh Lý Tủ Giày, Tủ Quần Áo, Kệ Sách, Giường ở Sài Gòn HCM",
+    "url": "https://www.facebook.com/groups/927836504555272",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "cfe0bb44-b872-446f-a569-d18fbf99b375",
+    "name": "Thanh lý đồ dùng gia đình _ TP.HCM",
+    "url": "https://www.facebook.com/groups/326093117236730",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "b1fce223-5574-4700-91e3-5b4e803bbbf0",
+    "name": "HỘI THANH LÝ ĐỒ DÙNG GIA ĐÌNH TPHCM",
+    "url": "https://www.facebook.com/groups/1375625826026300",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "e3f8900b-63d6-49da-b10e-fe9f8b40ad3e",
+    "name": "HỘI THANH LÝ ĐỒ CŨ QUẬN 4",
+    "url": "https://www.facebook.com/groups/565575571266763",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "0ab85991-e962-4ca4-b6dc-7ba815d16f58",
+    "name": "THANH LÝ ĐỒ CŨ-MỚI TP.HỒ CHÍ MINH ✅",
+    "url": "https://www.facebook.com/groups/1103606428216995",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "1c0cb43f-cfc1-4f7a-a7c7-416c64832413",
+    "name": "🔥 THANH LÝ ĐỒ DÙNG SINH VIÊN Thủ Đức, Q9 - không cọc",
+    "url": "https://www.facebook.com/groups/795989778836239",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "4c0cf819-0c55-4503-9093-885dcac93156",
+    "name": "Thanh lý đồ cũ, pass đồ cư dân Vinhome Grand Park",
+    "url": "https://www.facebook.com/groups/docuvinhome",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "b130094c-d372-430d-af0a-2186652548c4",
+    "name": "Hội Thanh Lý Đồ Cũ Mới Hóc Môn, Quận 12 Và Toàn TPHCM",
+    "url": "https://www.facebook.com/groups/385060467869858",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "fa681315-0978-49aa-acc1-6767fa44a8bb",
+    "name": "THANH lÝ ĐỒ DÙNG GIA ĐÌNH TP.HCM Nhóm Riêng tư  · 67,1K thành viên",
+    "url": "https://www.facebook.com/groups/350140875167402",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "050ed839-fead-4568-b703-ea25d86096d8",
+    "name": "MUA - BÁN, THANH LÝ ĐỒ CŨ TPHCM",
+    "url": "https://www.facebook.com/groups/188297553435558",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "50ed6d1c-a143-412c-9f94-988b3bc72a2f",
+    "name": "HỘI THANH LÝ ĐỒ GIA DỤNG TPHCM",
+    "url": "https://www.facebook.com/groups/510826856080966",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "2f3cbddd-8201-410b-bf8c-6dbd756d4602",
+    "name": "Pass Đồ Sinh Viên Giá Rẻ TP.HCM",
+    "url": "https://www.facebook.com/groups/754687202933541",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "90d94a79-6a18-40c0-8b69-1ddb4e053f32",
+    "name": "Thanh Lý Đồ Dùng Sinh Viên Tại TP.HCM",
+    "url": "https://www.facebook.com/groups/sinhvienthanhly",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "cb6860de-4e35-4ce8-ac19-8ceb3c357f09",
+    "name": "Thanh Lý Đồ Cũ Quận 7 - Nhà Bè ☑️",
+    "url": "https://www.facebook.com/groups/424039006940202",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "b79613eb-6fc0-4350-a16b-b1c77ae712c7",
+    "name": "Chợ Đồ Cũ - Hàng Thanh Lý Bình Thạnh - Gò Vấp - Q12 ✅",
+    "url": "https://www.facebook.com/groups/docubinhthanh",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "87bc0e65-35fd-48a2-ab1e-debcf6e76ef8",
     "name": "Hội Thanh lý Giường Tủ Áo ,Bàn Ghế TPHCM",
     "url": "https://www.facebook.com/groups/330726266124502",
     "description": "",
-    "active": true
+    "active": true,
+    "post_type": "normal"
   },
   {
-    "id": "a5907d0e-d6d3-457f-a97b-28897c567842",
+    "id": "c889c7d1-7240-4f6c-a4ad-4a2d02175a39",
+    "name": "Chợ Thanh Lý Đồ Cũ TP Hồ Chí Minh",
+    "url": "https://www.facebook.com/groups/450131075710604",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "2686e843-260b-41e4-86f9-ded969d84076",
+    "name": "Pass Đồ Sinh Viên Giá Rẻ TP.HCM ",
+    "url": "https://www.facebook.com/groups/1194911230712488",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "c0234602-b0cf-4a46-9d22-aaaa4b08fc22",
+    "name": "HỘI THANH LÝ ĐỒ CŨ PHÚ NHUẬN",
+    "url": "https://www.facebook.com/groups/367038284954084",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "3f7377ce-0cee-48f8-b7c6-ed7cc62803dd",
+    "name": "Hội Thanh Lý Bàn, Ghế, Tủ, Kệ Tp.Hồ Chí Minh",
+    "url": "https://www.facebook.com/groups/1385331854980979",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "67d09e62-eadb-4e88-b329-0d59651da0f1",
+    "name": "Nhóm Thanh Lý Bàn Ghế, Giường Tủ Giá Rẻ Sài Gòn TPHCM",
+    "url": "https://www.facebook.com/groups/713070640520572",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "ca666450-815d-4b54-9bb5-6046908abd96",
+    "name": "THANH LÝ CHO TẶNG ĐỒ VINHOMES GRAND PARK ✅",
+    "url": "https://www.facebook.com/groups/thanhlyvinhomesgrandpark",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "67455c71-dc02-4e14-80c5-313ecff3a080",
+    "name": "THANH LÝ ĐỒ DÙNG SINH VIÊN TP.HCM",
+    "url": "https://www.facebook.com/groups/3724303190966079",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "cdd7e6d0-bffd-4bee-b002-4cc45995189d",
+    "name": "Chợ Đồ Cũ - Hàng Thanh Lý Q7 - Q4 - Q8 ✅",
+    "url": "https://www.facebook.com/groups/passdothuduc",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "0a3b208e-018c-4b84-9fe0-6e561964c946",
+    "name": "Hội Thanh Lý Đồ Cũ Mới Hóc Môn, Quận 12 Và Toàn TPHCM",
+    "url": "https://www.facebook.com/groups/354993143046657",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "b8eae696-cc8d-4cc8-bfd9-aff8f0f20477",
+    "name": "Thanh Lý - Pass đồ KTX Khu B, làng đại học",
+    "url": "https://www.facebook.com/groups/thanhlydo.langdaihoc",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "325c12c1-5850-4545-92c1-9ed4d5f17f37",
+    "name": "THANH LÝ ĐỒ CŨ QUẬN 2, QUẬN 9, THỦ ĐỨC ✅",
+    "url": "https://www.facebook.com/groups/325184910629645",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "f775a600-ee0e-4133-ba9e-917909cd930a",
+    "name": "Thanh lý đồ dùng gia đình HCM",
+    "url": "https://www.facebook.com/groups/1527284130985235",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "d5ab2cc8-d646-4964-8be5-890e8c3542e0",
+    "name": "Hội Thanh Lý, Mua Bán Đồ Nhà Hàng, Quán Ăn, Quán Cà Phê TP. HCM",
+    "url": "https://www.facebook.com/groups/2818684728295490",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "e6751007-07fc-42f6-88c1-348d07dda821",
+    "name": "Pass Đồ Sinh Viên Giá Rẻ TP.HCM",
+    "url": "https://www.facebook.com/groups/610865453681899",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "7050c9dc-1309-4981-9f47-fd2eec3bf3ce",
+    "name": "THANH LÝ ĐỒ CŨ HỒ CHÍ MINH",
+    "url": "https://www.facebook.com/groups/2732670306974334",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "60686c65-465b-44e3-b318-d8c946556857",
+    "name": "CHỢ ĐỒ CŨ - TPHCM ( ĐĂNG BÀI TỰ DO )",
+    "url": "https://www.facebook.com/groups/964769857425974",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "cb00fd34-6688-4265-98f9-9adbb2bb73e0",
+    "name": "Hội Thanh Lý Đồ Cũ Thuận An Bình Dương",
+    "url": "https://www.facebook.com/groups/788683356689963",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "e77579c6-c49b-4f55-81fe-7efe7ee0e2e3",
+    "name": "Hội thanh lý đồ cũ tphcm ( giá rẻ bèo )",
+    "url": "https://www.facebook.com/groups/755855472127887",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "1ea74927-4930-4704-a06d-400cd4332786",
+    "name": "HỘI THANH LÝ ĐỒ CŨ & MỚI QUẬN 12 HÓC MÔN",
+    "url": "https://www.facebook.com/groups/410097077284948",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "346e7562-be59-4386-8234-0fd62eba9af6",
+    "name": "THANH LÝ ĐỒ DÙNG GIA ĐÌNH TP HCM",
+    "url": "https://www.facebook.com/groups/1855508048093244",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "5fd21917-09f1-4283-8512-747349407802",
+    "name": "Hội Thanh Lý Đồ Gia Dụng Cho Sinh Viên",
+    "url": "https://www.facebook.com/groups/833985048634711",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "8a405192-15eb-4d4a-8b37-879ce9713210",
+    "name": "ĐỒ CŨ THANH LÝ SÀI GÒN ",
+    "url": "https://www.facebook.com/groups/506197188248569",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "e7916830-cdb2-414a-916d-dc5336af6a8b",
+    "name": "Chợ Pass Đồ Cũ Thanh Lý Sài Gòn Tp HCM Thủ Đức",
+    "url": "https://www.facebook.com/groups/433862690005116",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "74fa3076-d9ce-49cc-9627-8b0432645045",
+    "name": "Thanh Lý Đồ Cũ Giá Rẻ Sài Gòn",
+    "url": "https://www.facebook.com/groups/286067672118237",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "06e979fa-6aa6-4f15-bd7e-14f3b241e0ea",
+    "name": "THANH LÝ ĐỒ CŨ QUẬN 8",
+    "url": "https://www.facebook.com/groups/1389286141817380",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "12930bbe-a9c2-4b4d-a238-85588be77fe6",
+    "name": "Mua Bán Đồ Cũ Thanh Lý Tại TPHCM",
+    "url": "https://www.facebook.com/groups/224269283298531",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "7747df83-4985-4728-8aba-43fdcc2fd6e8",
+    "name": "THANH LÝ ĐỒ CŨ",
+    "url": "https://www.facebook.com/groups/8313676171993215",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "6b973f73-9f6b-4c76-bcd9-cf009001dec3",
+    "name": "Chợ Tốt TP.HCM (Sài Gòn)",
+    "url": "https://www.facebook.com/groups/4367150640070804",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "81a91a07-f28a-4ff0-9846-a5f5d507ddeb",
+    "name": "Hội Thanh Lý bàn ghế tủ giường sofa đồ dùng HCM",
+    "url": "https://www.facebook.com/groups/2315349911855801",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "1b5e3069-8604-4bbb-95e1-3fc8dfd09885",
+    "name": "HỘI THANH LÝ ĐỒ CŨ TPHCM",
+    "url": "https://www.facebook.com/groups/1615417409209918",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "25e1f5a3-c28a-4d40-bb85-0fcbb45b62f3",
+    "name": "Chợ mua bán và thanh lý quận Bình Tân",
+    "url": "https://www.facebook.com/groups/655541621215774",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "83e2d5fd-6910-47db-8c6b-f8d684b3a698",
+    "name": "THANH LÝ ĐỒ CŨ QUẬN 2, QUẬN 9, THỦ ĐỨC",
+    "url": "https://www.facebook.com/groups/536880821412430",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "254da3ed-c73c-4e66-8716-727f449cb862",
+    "name": "THANH LÝ ĐỒ CŨ - MỚI TP.HCM",
+    "url": "https://www.facebook.com/groups/1295855760849366",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "a43241cc-4feb-48e8-9030-44bb5d603a5f",
+    "name": "Hội Thanh Lý Đồ Cũ, Thanh Lý Hàng Cũ Phía Nam TP HCM",
+    "url": "https://www.facebook.com/groups/2388167551399915",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "1e4de789-dd49-4cee-bcae-7ed266fca4ba",
+    "name": "Thanh Lý Đồ Dùng Phòng Trọ - TPHCM",
+    "url": "https://www.facebook.com/groups/TrungTamMuaSamUngHoa",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "1dc0906c-39ab-44ca-8e6f-5f9367740831",
+    "name": "Thanh lý đồ dùng phòng trọ, sinh viên TP HCM",
+    "url": "https://www.facebook.com/groups/1473230749622507",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "6182256e-0677-4b67-85a5-2106e5d9720f",
+    "name": "thanh lý đồ cũ đồ dùng sinh viên tphcm",
+    "url": "https://www.facebook.com/groups/1321383745801456",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "bd11e4ed-1638-4d69-97b2-7b65e6b02660",
+    "name": "Hội Thanh Lý Đồ Dụng Sài Gòn Tphcm 1",
+    "url": "https://www.facebook.com/groups/1032285820204247",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "6e161860-810c-4fc8-b402-08bab8db61da",
+    "name": "NHÓM THANH LÝ ĐỒ CŨ GIÁ RẺ TPHCM",
+    "url": "https://www.facebook.com/groups/954141702508243",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "35817558-3525-40ed-a5a4-9842c60b774d",
+    "name": "THANH LÝ ĐỒ CŨ - MỚI TP.HCM",
+    "url": "https://www.facebook.com/groups/1576792646458158",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "136f6675-5fe4-44bc-8a86-29dd4c1b7aa4",
+    "name": "Chợ Tốt TPHCM",
+    "url": "https://www.facebook.com/groups/8907511552656007",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "6b40e1e3-414c-4686-9d47-10efa6df542f",
+    "name": "Hội Mua Bán Bàn Ghế Văn Phòng Thanh Lý Tại TP.HCM",
+    "url": "https://www.facebook.com/groups/thanhlybanghevanphongcu",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "40c332ac-e8e4-4411-96cb-51edd501857f",
+    "name": "Hội thanh lý đồ cũ Tphcm",
+    "url": "https://www.facebook.com/groups/3575806925852609",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "a38657a9-2484-4c5c-b688-8847be1d5e27",
+    "name": "Thanh Lý Đồ Dùng Vinhomes Grand Park Quận 9",
+    "url": "https://www.facebook.com/groups/remcuavinhome",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "b1fc66aa-2b4c-4367-98bc-19c60b6b2a95",
+    "name": "Chợ Sài Gòn ( TP Hồ Chí Minh)",
+    "url": "https://www.facebook.com/groups/7541748825950908",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "74d23463-fba3-4cd8-990e-268f542c96e9",
+    "name": "Chợ Thanh Lý Đồ Cũ Các Chung Cư Bình Chánh",
+    "url": "https://www.facebook.com/groups/2545879099039585",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "13a16f1c-bfc2-4ebc-8e83-3217cd6e68b2",
+    "name": "THANH LÝ TẤT TẦN TẬT TP.HCM",
+    "url": "https://www.facebook.com/groups/199430507529585",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "417724be-f063-45ec-b244-4f7046e93da5",
+    "name": "HÔI THANH LÝ NỘI THẤT Q9 THỦ ĐỨC",
+    "url": "https://www.facebook.com/groups/1461060453966056",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "55528735-a5f8-45e8-b3f0-c52b4440e46c",
+    "name": "Chợ sinh viên Sài Gòn",
+    "url": "https://www.facebook.com/groups/shop79.com.vn",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "4b45ceed-492d-452f-8ce1-ced6d6fbe404",
+    "name": "HỘI THANH LÝ TỦ, KỆ, GIƯỜNG, BÀN GHẾ, ĐỒ ĐIỆN TỬ, NHÀ ĐẤT, CHUNG CƯ TP. HCM",
+    "url": "https://www.facebook.com/groups/1341145845922611",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "14a3dbbf-fc60-407c-9fa1-33370f2b8a8a",
+    "name": "THANH LÝ NỘI THẤT TP.HCM",
+    "url": "https://www.facebook.com/groups/1293400084072036",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "7a961c71-2cf4-469b-9e4a-39e876d12a6f",
+    "name": "Hội Thanh Lí TP.HCM (Mua & bán đồ cũ - secondhand )",
+    "url": "https://www.facebook.com/groups/1241927465828726",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "92b6bc4e-a6f5-4e34-9e35-8be7514df374",
+    "name": "HỘI THANH LÝ ĐỒ CŨ & MỚI _ HÓC MÔN",
+    "url": "https://www.facebook.com/groups/956584655377731",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "1c234357-3d54-4a4e-8921-95c74c7311e6",
+    "name": "Hội Thanh Lý Đồ Cũ - Đồ Mới Giá Rẻ Tp.HCM",
+    "url": "https://www.facebook.com/groups/951108215003865",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "f06879a1-7452-4adb-ad5d-5fe62c075c00",
+    "name": "Mua bán đồ cũ",
+    "url": "https://www.facebook.com/groups/943733912341927",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "cfa2c9c0-d552-4471-b897-afc4e45e0d29",
+    "name": "PASS ĐỒ DÙNG SINH VIÊN TP.HCM",
+    "url": "https://www.facebook.com/groups/356325950331417",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "eab5092d-28ec-4925-af93-b50e8d08d209",
+    "name": "THANH LÝ đồ dùng SINH VIÊN, QUẬN 9 - THỦ ĐỨC - QUẬN 2 GIÁ RẺ",
+    "url": "https://www.facebook.com/groups/175451356739212",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "65072497-7cb1-4216-afa7-e9d9bbcdcf99",
+    "name": "THANH LÝ ĐỒ CŨ TPHCM",
+    "url": "https://www.facebook.com/groups/118721935135191",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "5660f122-9ac1-4f6b-9e89-ebf13f092645",
+    "name": "THANH LÝ ĐỒ CŨ - MỚI TP.HCM",
+    "url": "https://www.facebook.com/groups/236152146924371",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "d0aa4d98-e7aa-4adb-ba3c-0cccd2fb5bd8",
+    "name": "Pass Đồ Sinh Viên Giá Rẻ TP.HCM",
+    "url": "https://www.facebook.com/groups/457345977993363",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "35c41439-e736-44b6-b51c-3fcbed10ea8c",
+    "name": "THANH LÝ ĐỒ DÙNG SINH VIÊN TP.HCM",
+    "url": "https://www.facebook.com/groups/1588007425000718",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "4e107402-b83a-4450-ba91-baf4fe7c91bf",
+    "name": "Thanh Lý Đồ Cũ Tại Tp Hồ Chí Minh",
+    "url": "https://www.facebook.com/groups/thanhlydocugiarehcm",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "828c7315-ac1f-48bd-a93a-e9f66af8a1d7",
+    "name": "Chợ Thanh Lý Đồ Cũ TPHCM Miễn Phí",
+    "url": "https://www.facebook.com/groups/411280259048204",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "035d4d24-3408-460b-be37-d5166164c256",
+    "name": "Hội Thanh Lý Bàn Ghế, Tủ Sài Gòn Tp Hcm 🪑 ( Giá rẻ nhất Sài Gòn)",
+    "url": "https://www.facebook.com/groups/chocudanvinhomegrandparktop1",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "f4cbd30c-655c-4dd6-93ca-933bdd277ce0",
+    "name": "Chợ Tốt TP.HCM (Sài Gòn)",
+    "url": "https://www.facebook.com/groups/1558946045060436",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "5d75975d-c013-49d4-8a66-d2728187d4f5",
+    "name": "Phòng trọ sinh viên giá rẻ TP.HCM",
+    "url": "https://www.facebook.com/groups/1119152348136051",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "9e7d30d2-8f8a-4623-91db-0efd58ca276a",
+    "name": "THANH LÝ BÀN GHẾ SOFA ✅",
+    "url": "https://www.facebook.com/groups/thanhlynoithatbanghevasofa",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "81d73b88-51a3-4172-85fc-92a468c9889b",
+    "name": "HỘI THANH LÝ ĐỒ DÙNG GIA ĐÌNH -- TPHCM ✅️",
+    "url": "https://www.facebook.com/groups/1270824770044633",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "57524700-d839-4306-b386-52260098d21e",
+    "name": "Thanh Lý Đồ Cũ Tại Tp Hồ Chí Minh",
+    "url": "https://www.facebook.com/groups/178089503485572",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "df376b7e-01b9-42b5-a1c5-10641589d65b",
+    "name": "Hội Thanh Lý Đồ Điện Gia Dụng TP Hồ Chí Minh Tủ Lạnh - Tủ Đông - Tủ Mát ",
+    "url": "https://www.facebook.com/groups/340168921764057",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "85d6324f-7660-4650-b595-fcce75a288e2",
+    "name": "Tổng Hội Thanh Lý Đồ Cũ Bình Dương",
+    "url": "https://www.facebook.com/groups/vieclam.tanuyen.bd",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "3841c69f-e59a-446d-81ad-f46c5788ab06",
+    "name": "Thanh Lý, Pass Đồ KTX Khu B, Bcons, Làng Đại Học",
+    "url": "https://www.facebook.com/groups/passdolangdaihoc",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "434013c0-7641-49df-94b3-6a39ba8aa9e4",
+    "name": "Hội Thanh Lý Đồ Dùng Gia Đình TP. HCM",
+    "url": "https://www.facebook.com/groups/2262283050527459",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "718b18e5-e912-4376-809d-ca2691e99657",
+    "name": "Thanh Lý Bàn Ghế Quán Cafe, Nhà Hàng TP.HCM",
+    "url": "https://www.facebook.com/groups/1315111728584348",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "89d4294f-36ac-4ab1-b01f-e00330e3ff42",
+    "name": "Chợ Cư Dân Tân Phú ✅ ( Quận Tân Phú – TP.HCM )",
+    "url": "https://www.facebook.com/groups/1370193293585690",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "cbc5c4d4-c7f4-4404-b38b-f372b7774c6d",
+    "name": "Chợ Tốt TP.HCM (Sài Gòn)",
+    "url": "https://www.facebook.com/groups/937469108168442",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "7a9c545b-7fa4-45de-afae-2466ff7cc592",
+    "name": "Chợ thanh lý đồ cũ Dĩ An -Thủ Đức✅",
+    "url": "https://www.facebook.com/groups/chodianmuaban",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "86763b7d-7ec2-42d2-bf98-86f0f0d094e6",
+    "name": "GÓC THANH LÝ ĐỒ VINHOMES GRAND PARK",
+    "url": "https://www.facebook.com/groups/gocthanhlyvinhomesgrandpark",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "03878d5f-7527-4c69-acb3-3f3818033157",
+    "name": "THANH LÝ ĐỒ CŨ TPHCM (ĐĂNG BÀI TỰ DO)",
+    "url": "https://www.facebook.com/groups/934306471869408",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "22de403c-cb97-49b4-85bb-fef2b2119863",
+    "name": "CHỢ TỐT - TP HỒ CHÍ MINH",
+    "url": "https://www.facebook.com/groups/1155763978782119",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "0cbd8c6d-de62-47fe-ae32-c7b8c8cb9de2",
+    "name": "Chợ thanh lý đồ cũ Thủ Đức, Quận 2, Quận 9",
+    "url": "https://www.facebook.com/groups/chothanhlydocuthuduc",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "f8b217e7-482a-41e6-b885-9b6682a3c0de",
+    "name": "HỘI MUA BÁN ĐỒ THANH LÝ GIA ĐÌNH ( Gỗ, bàn ghế, vật dụng, gia dụng..vv)!",
+    "url": "https://www.facebook.com/groups/201946976232152",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "e46e087b-e6d1-4eee-8ac9-c0fafdd88146",
+    "name": "Chợ đồ cũ - Thanh Lý, Pass đồ Giá Rẻ TPHCM",
+    "url": "https://www.facebook.com/groups/677197930540617",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "e6962b1b-c88f-4295-ac36-b6d02dfa6efd",
+    "name": "🛋Thanh Lý Tủ Bàn Ghế Sofa Sài Gòn Hcm 🪑(MUA XÁC ĐIỆN THOẠI 0911551150)",
+    "url": "https://www.facebook.com/groups/1985342751756586",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "79658843-bf93-41f7-a1ea-5ddce2137804",
+    "name": "Pass Đồ Sinh Viên Giá Rẻ TP.HCM",
+    "url": "https://www.facebook.com/groups/passdosinhvienhcm",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "3185fad3-995e-4748-9499-6bb6b5d1b059",
+    "name": "Thanh Lý Đồ Cũ Tại Tp Hồ Chí Minh",
+    "url": "https://www.facebook.com/groups/315497475587888",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "316f3154-169a-4c03-8056-d5668154c797",
+    "name": "NHÓM THANH LÝ BÀN HỌC SINH GIÁ RẺ",
+    "url": "https://www.facebook.com/groups/1193791898125778",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "7ae2fd91-7a4c-4a51-b51e-43ab9e82b7ec",
+    "name": "HỘI THANH LÝ ĐỒ CŨ - TỦ LẠNH CŨ GIÁ RẺ",
+    "url": "https://www.facebook.com/groups/2675967839399894",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "e53fc5c3-7bbb-4cca-b3ab-ba8171708566",
+    "name": "Hội thanh lý tủ lạnh , máy giặt , máy lạnh tphcm",
+    "url": "https://www.facebook.com/groups/414574513849319",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "a1f58060-5d3f-49be-ae82-7c850a7d4066",
+    "name": "Hội Mua Bán Thanh Lý Bàn Ghế, Đồ Nội Thất Cũ Tại TP.HCM",
+    "url": "https://www.facebook.com/groups/thumuadocuhcm",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "9ebaa1f1-72f8-4247-8826-65bf4eb6c04f",
+    "name": "THANH LÝ ĐỒ CŨ - MỚI TP.HCM ✅",
+    "url": "https://www.facebook.com/groups/1524624431375431",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "5b63f740-e3fc-42d9-850a-f4c1a77991ec",
+    "name": "Chợ BÀN GHẾ Gaming MỚI và CŨ",
+    "url": "https://www.facebook.com/groups/2006603152753903",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "b1e7e20b-8d7c-43fb-9f04-c4c0f265ac6c",
+    "name": "Hội Thanh Lý Đồ Dùng Nhà Hàng , Quán Ăn , Đồ Gia Đình",
+    "url": "https://www.facebook.com/groups/360899723603863",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "de942155-795b-421d-b92d-57fb25619fa5",
+    "name": "Chợ Tốt TP.HCM (Sài Gòn)",
+    "url": "https://www.facebook.com/groups/756172333360342",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "4d47dfe9-3382-418c-8613-5962aea69c62",
+    "name": "CHỢ THANH LÝ, PASS ĐỒ SINH VIÊN TP HCM",
+    "url": "https://www.facebook.com/groups/8987091784698541",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "7a41c6bb-e427-4ea4-9070-93b1bdbebc6b",
+    "name": "Thanh Lý - Pass Đồ KTX Khu A,B - Làng Đại Học",
+    "url": "https://www.facebook.com/groups/thanhlypassdolangdaihoc",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "f6d11627-a843-4b52-be26-9ee5b4920fc5",
+    "name": "Chợ Mua Bán Sài Gòn Tất tần tật",
+    "url": "https://www.facebook.com/groups/anhuynguyen2003",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "59c6a7b0-9751-4712-b713-3428361559aa",
+    "name": "Thanh Lý Tủ Bàn, Ghế, Kệ - Đồ Gỗ - Nội Thất - Đồ Điện Gia Dụng TPHCM - SG",
+    "url": "https://www.facebook.com/groups/725696665356687",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "20093d78-576e-43f0-8cb7-b1807466fd45",
+    "name": "HỘI THANH LÝ ĐỒ CŨ Q7 - NHÀ BÈ",
+    "url": "https://www.facebook.com/groups/174924461334980",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "ae968e4d-a79e-42f6-91c7-7fbc2b3619b0",
+    "name": "Thanh Lý Đồ Dùng Bình Thạnh - Phú Nhuận - Quận 1,3",
+    "url": "https://www.facebook.com/groups/thanhydodung",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "559a52d7-cd2b-4f17-8e3e-3f253820029f",
+    "name": "Chợ Đồ Cũ - Hàng Thanh Lý Thủ Đức TPHCM ",
+    "url": "https://www.facebook.com/groups/chothuducmuaban",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "b84df501-3967-4db0-86e4-98ebeb36755f",
+    "name": "Thanh lý giường tầng tphcm",
+    "url": "https://www.facebook.com/groups/124437839572794",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "36b18515-fa02-4238-b1a1-9ebc6c9ad428",
+    "name": "Chợ Đồ Cũ Quận 12 - Hội Thanh Lý Đồ Cũ Quận 12",
+    "url": "https://www.facebook.com/groups/chodocuquan12",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "ce35f3db-e2f0-49c3-8288-a3697e5a3f2d",
+    "name": "HỘI THANH LÝ ĐỒ DÙNG QUẬN TÂN PHÚ",
+    "url": "https://www.facebook.com/groups/636105505288298",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "bb665893-0563-408a-bb4d-fa8f3157dc83",
+    "name": "Mua Bán Ghế Sofa Cũ - Sofa Thanh Lý tại TPHCM",
+    "url": "https://www.facebook.com/groups/ghesofahcm",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "de53f3cc-9e42-4e17-a6b7-8b89b2c0b15e",
+    "name": "Chợ tốt Tp Hồ Chí Minh",
+    "url": "https://www.facebook.com/groups/chotothochiminh.vn",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "ee1b5d25-33e6-4c72-8214-cbed660842dd",
+    "name": "CHỢ THANH LÝ ĐỒ CŨ SÀI GÒN",
+    "url": "https://www.facebook.com/groups/3269188933384984",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "af2a2e2f-89d8-4641-80d5-5aa67aa00afc",
+    "name": "https://www.facebook.com/groups/3269188933384984",
+    "url": "https://www.facebook.com/groups/607454396586123",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "d215d85b-6d28-451d-b5ca-d5bbe5071577",
+    "name": "HỘI THANH LÝ ĐỒ CŨ & MỚI - TP.HCM ✔",
+    "url": "https://www.facebook.com/groups/HoiThanhLyDoCuVaMoi.Tphcm",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "b57a47be-99ef-4314-b381-fe5672ad86a0",
+    "name": "Hội Thanh Lý Đồ Cũ Thuận An Bình Dương",
+    "url": "Hội Thanh Lý Đồ Cũ Thuận An Bình Dương",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "d8d2ce84-9844-4a4a-8947-6872400039e5",
+    "name": "THANH LÝ NỘi THẤT ĐỒ GỖ,BÀN GHẾ SOFA",
+    "url": "https://www.facebook.com/groups/7633229446756247",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "d3a5ed7f-ad01-4a28-a578-b09f04b9abb0",
+    "name": "  Nhóm của Bàn Ghế Cafe Nhà Hàng Giá Rẻ TP HCM Hội Thanh Lý Bàn Ghế & Đồ Dùng Gia Đình HCM",
+    "url": "https://www.facebook.com/groups/1978591832377652",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "ba883ade-8b4d-4ad1-b060-8aca92887db1",
+    "name": "Thanh lý đồ cũ Gò Vấp Tphcm",
+    "url": "https://www.facebook.com/groups/1156547968914563",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "8105c357-9e01-4a98-a3a0-cd19558ab6b0",
+    "name": "Thanh lý Nệm palet Giường Tủ Tại Sài Gòn",
+    "url": "https://www.facebook.com/groups/1248913872486156",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "8639a4a7-5816-48f6-b67c-031836b41ead",
     "name": "Hội thanh lý đồ giá rẻ TPHCM",
     "url": "https://www.facebook.com/groups/hoithanhlydogiaretphcm",
     "description": "",
-    "active": true
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "aae6cca4-6abf-408c-9c03-ab4d1e2458ab",
+    "name": "Thanh Lý Đồ Cũ - TP.HCM",
+    "url": "https://www.facebook.com/groups/916667175036699",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "e63fbd78-4a1f-44f8-92f4-b302cfb650a4",
+    "name": "Chợ Đồ Cũ - Hàng Thanh Lý Củ Chi - Hóc Môn - Q12 ✅",
+    "url": "https://www.facebook.com/groups/xemaycubinhduong",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "4cdda5ff-ca37-45b1-a701-2ab6d0c3c48c",
+    "name": "MUA - BÁN THANH LÝ ĐỒ CŨ TPHCM",
+    "url": "https://www.facebook.com/groups/256442430731060",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "0ec46dc4-b30f-458a-9485-1c6ee3a47991",
+    "name": "Hội Thanh Lý Đồ Cũ TPHCM",
+    "url": "https://www.facebook.com/groups/786815195509268",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "41e51e04-5276-4cb3-a33d-9019bccbeaf3",
+    "name": "Thanh Lý ghế sofa TPHCM",
+    "url": "https://www.facebook.com/groups/381391722197227",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "802e66bf-bbe8-474a-9579-c98cb3fa2f5e",
+    "name": "Nhóm Thanh Lý Bàn Ghế, Giường, Tủ Kệ, Sofa Giá Rẻ Tại Sài Gòn - TPHCM",
+    "url": "https://www.facebook.com/groups/1125592178312178",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "d767ba33-2df4-427e-ba35-05afdf92ebb3",
+    "name": "thanh lý tủ nhựa DUY TÂN, đồ gia dụng",
+    "url": "https://www.facebook.com/groups/2018369074993991",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "cea1a24d-ef58-405e-a830-f60b1d94e78c",
+    "name": "Chợ Tốt TP.HCM (Sài Gòn) ",
+    "url": "https://www.facebook.com/groups/TimViecLamTPHCM.VL",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "f76fa115-3fbd-4640-afe6-05c8d235b001",
+    "name": "THANH LÝ ĐỒ CŨ - MỚI TP.HCM",
+    "url": "https://www.facebook.com/groups/1204063049784143",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "ca6077c1-ed75-41a3-ae85-e22a2bb77752",
+    "name": "THANH LÝ ĐỒ CŨ Q2, Q9, THỦ ĐỨC, TPHCM",
+    "url": "https://www.facebook.com/groups/407721854779747",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "fa246d26-d8b2-4ee2-b8d9-033c7ab194dd",
+    "name": "CHỢ TỐT THÀNH PHỐ HỒ CHÍ MINH",
+    "url": "https://www.facebook.com/groups/750628368609338",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "eca6b147-8ed9-4e8d-9801-a79aa5aaa727",
+    "name": " Hội thanh lý bàn ghế tủ kệ giường giá rẻ & đồ dùng gia đình Tp Hcm",
+    "url": "https://www.facebook.com/groups/443960960384090",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "bdf3de77-1886-4e86-bcd9-51a551856990",
+    "name": "THANH LÝ ĐỒ DÙNG PHÒNG TRỌ CŨ- MỚI TPHCM 𝙈𝙚𝙚𝙞 𝙉𝙜𝙪𝙮𝙚̂̃𝙣",
+    "url": "https://www.facebook.com/groups/1879563725518369",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "30858702-6513-40cf-8d8b-8bd3312b3d52",
+    "name": "Hội Thanh lý đồ cũ Tphcm",
+    "url": "https://www.facebook.com/groups/738364891189246",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "355b689a-1ebb-461b-b9b0-6f3e365de9a1",
+    "name": "Chợ đồ cũ - Thanh Lý, Pass đồ Giá Rẻ TPHCM",
+    "url": "https://www.facebook.com/groups/294590500362694",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "3a7aaaf1-edb9-45ba-bc5e-ecc2d49c8970",
+    "name": "Chợ Thanh Lý Đồ Củ TP Hồ Chí Minh ",
+    "url": "https://www.facebook.com/groups/chothanhlydocutphochiminh",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "7e8fa1d9-3f94-4f36-98df-a2a56f3c9d34",
+    "name": "Hội Thanh Lý Bàn Ghế, Tủ Sài Gòn TP. HCM 🪑 🛋 (Ai Yêu Cầu Cọc Là Lừa Đảo)",
+    "url": "https://www.facebook.com/groups/hangthanhlitphcm",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "e43d4f0a-6bdc-43f7-bc9e-f5939de2dea3",
+    "name": "Chợ Đồ Cũ & Đồ Mới Online",
+    "url": "https://www.facebook.com/groups/chodocuvadomoionline",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "425e28f2-5c4e-4989-9a02-1bdf13a5d9d8",
+    "name": "Hội Thanh Lý Đồ Dùng Gia Đình TP..HCM",
+    "url": "https://www.facebook.com/groups/532998691228714",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "f2accb55-ed47-4a8d-96a2-2ed8ab870b4c",
+    "name": "PASS ĐỒ CŨ HỒ CHÍ MINH",
+    "url": "https://www.facebook.com/groups/1838967869650036",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "5236dce8-564e-4504-a4ff-b56d143ef495",
+    "name": "THANH LÝ ĐỒ CŨ GIÁ RẺ TẠI HỒ CHÍ MINH",
+    "url": "https://www.facebook.com/groups/1125081107565775",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "089ca512-2334-4035-885b-e4b261d54441",
+    "name": "Hội Thanh Lý Bàn Ghế, Tủ Sài Gòn Tp Hcm 🪑(Ai Yêu Cầu Cọc Là Lừa Đảo)",
+    "url": "https://www.facebook.com/groups/2686478308274501",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "a256a4b0-439c-4715-9655-fd116647aaf3",
+    "name": "Hội Thanh Lý Bàn Ghế,Giường,Tủ Kệ Trưng Bày,Sofa tại Sài Gòn ,TPHCM",
+    "url": "https://www.facebook.com/groups/noithatthanhly",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "1c300862-51d4-477d-b667-6845a5da82dc",
+    "name": "Hội Thanh Lý Bàn Ghế, Tủ Áo, Kệ, Giường, Tủ Trưng Bày Tại Sài Gòn Tp HCM🛌",
+    "url": "https://www.facebook.com/groups/1422599111216567",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "94afa59b-4feb-4889-b585-571dfa777385",
+    "name": "HỘI THANH LÝ ĐỒ CŨ & MỚI - TP.HCM",
+    "url": "https://www.facebook.com/groups/hoithanhlimuabantphcm",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "ed987865-d1b4-40b5-96e4-5c71195ce009",
+    "name": "Thanh lí Tủ lạnh Máy giặt cũ dành cho sinh viên , nhà trọ TPHCM",
+    "url": "https://www.facebook.com/groups/3243145302675272",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "4fc41234-3b1b-4bfe-a378-1382576a5800",
+    "name": "Chợ Mua Bán Thanh lý Vinhomes Grand Park Quận 9",
+    "url": "https://www.facebook.com/groups/443105888357299",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "adf4b050-ae81-4046-9f3c-14d92cb55c9a",
+    "name": "Hội Thanh Lý Bàn Ghế Tủ Kệ Giường TP HCM 🏡",
+    "url": "https://www.facebook.com/groups/821805855382305",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "712969bd-95be-43d0-be32-043939a0b880",
+    "name": "Chợ đồ cũ - Thanh Lý, Pass đồ Giá Rẻ TPHCM",
+    "url": "https://www.facebook.com/groups/1367018044001314",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "ebedd100-aaa7-4b08-8cfe-754be7ad3cb4",
+    "name": "  Hội Thanh Lý Đồ Cũ Quận 12",
+    "url": "https://www.facebook.com/groups/590285912723207",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "d8d78b1d-5b47-4cb0-aba9-637630e8b33d",
+    "name": "Hội Thanh Lý Bàn Ghế, Tủ, Kệ Bình Dương (ĐĂNG TỰ DO)🪑",
+    "url": "https://www.facebook.com/groups/234397434092257",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "7cf7efad-3045-49fd-839a-e75ae720d44a",
+    "name": "HỘI ĐỒ THANH LÝ TP.HCM",
+    "url": "https://www.facebook.com/groups/1083917202324263",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "2b22a62f-fab0-4cc9-a531-cd81a6f412df",
+    "name": "THANH LÝ ĐỒ CŨ - MỚI TP.HCM",
+    "url": "https://www.facebook.com/groups/104585470086939",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "8b85569a-5fdb-44fc-85ec-e69a80c4e716",
+    "name": "Chợ online TPHCM ",
+    "url": "https://www.facebook.com/groups/1577146465979953",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "72bff13d-7885-406a-89b0-e51b61fb6abb",
+    "name": "Hội thanh lý bàn, ghế, tủ, kệ trưng bày, đồ dùng TP.HCM",
+    "url": "https://www.facebook.com/groups/296869734527649",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "958ed0f4-a2a5-449a-bd8f-97b64fbca61d",
+    "name": "THANH LÝ ĐỒ CŨ QUẬN 2, QUẬN 9, THỦ ĐỨC ✅",
+    "url": "https://maybe-bat-permission-better.trycloudflare.com/groups",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "37646dc3-7453-4c7c-a87e-a12f87eb297e",
+    "name": "Thanh lý đồ củ Hóc môn",
+    "url": "https://www.facebook.com/groups/522741942614918",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "7b974981-79c8-4c85-8341-24931a254cb3",
+    "name": "NHÓM THANH LÝ ĐỒ CŨ",
+    "url": "https://www.facebook.com/groups/841720450948507",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "cd5402f0-a132-4d18-acf6-1387294edbb2",
+    "name": "Hội thanh lý đồ cũ Bình Tân SG",
+    "url": "https://www.facebook.com/groups/162315462561074",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "0a4acc46-285a-41c3-a666-aae974d66c84",
+    "name": "MUA BÁN ĐỒ CŨ - THANH LÝ ĐỒ CŨ ✅",
+    "url": "https://www.facebook.com/groups/2768369000083302",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "93e94945-f8d1-49b6-864a-30c00861e503",
+    "name": "Chợ Tốt Thanh Lý Đồ Dùng Gia Đình Sài Gòn (TP.HCM)",
+    "url": "https://www.facebook.com/groups/1890630351328441",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "2b7628fc-ef2f-4d08-bee6-d5166511a977",
+    "name": "Hội thanh lý đồ cũ Quận 2.",
+    "url": "https://www.facebook.com/groups/150602036522753",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "75576e13-cf2d-4bf9-a521-27b815560c77",
+    "name": "THANH LÝ ĐỒ CŨ, HÀNG GIA DỤNG SÀI GÒN",
+    "url": "https://www.facebook.com/groups/539077247120221",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "5f63113d-b740-417c-89b1-988b292ca11c",
+    "name": "Thanh lý Đồ Cũ Mới TP. Thủ Đức. TP.HỒ Chí Minh",
+    "url": "https://www.facebook.com/groups/321822562367975",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "cb61069d-c3d4-40a3-a66e-7f155a5225ae",
+    "name": "HỘI THANH LÝ ĐỒ CŨ TPHCM",
+    "url": "https://www.facebook.com/groups/188150189828557",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "c7483697-f367-46f9-9d1b-ccc593b84308",
+    "name": "Thanh Lý Đồ Dùng phòng trọ HCM - Tủ Lạnh - Máy Giặt - Máy lạnh",
+    "url": "https://www.facebook.com/groups/1412914135749607",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "cad48aef-a77c-4e09-bfed-b7cba8c09947",
+    "name": "Mua bán đồ cũ HCM",
+    "url": "https://www.facebook.com/groups/787490615665076",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "897ced48-6c3d-4201-97ec-e75e8d193b34",
+    "name": "Hội Thanh lý đồ cũ HỒ CHí Minh",
+    "url": "https://www.facebook.com/groups/243759296132831",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "6c055032-ba6c-48f6-a72b-d0e6dab9c2ca",
+    "name": "Hội Thanh lý tủ kệ trưng bày, bàn ghế, giường, tủ Tân Phú Tân Bình - TP.HCM",
+    "url": "https://www.facebook.com/groups/thanhlytuketrungbay",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "f04c554a-e1de-4a06-9888-e82ac8ed1fc4",
+    "name": "THANH LÝ ĐỒ DÙNG SINH VIÊN TP.HCM",
+    "url": "https://www.facebook.com/groups/751378329763787",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "e1ef5617-847f-4e9a-9476-9541362cc170",
+    "name": "Hội Thanh Lý Bàn, Ghế, Tủ, Kệ, Quầy.... Nội Thất Cũ Tại TPHCM",
+    "url": "https://www.facebook.com/groups/1506638446205816",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "66e5553a-37e0-4aac-b0a2-de2398f42a41",
+    "name": "Thanh Lý Nội Thất Giá Rẻ Tphcm",
+    "url": "https://www.facebook.com/groups/615554055835994",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "0831753b-ec46-4310-8fe0-c01a4356aa8d",
+    "name": "Hội thanh lý đồ quận 12",
+    "url": "https://www.facebook.com/groups/1534418510463116",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "96de38b6-afa6-4ce4-964b-30161ea9c9d6",
+    "name": "Chợ Mua Bán ( Thanh Lý )Quận 1 Quận 3 Quận 5 Quận 7 Quận 8",
+    "url": "https://www.facebook.com/groups/1797817963853591",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "8141ea66-40d0-48d5-b240-868f2d402131",
+    "name": "Thanh lý bàn ghế văn phòng giá rẻ",
+    "url": "https://www.facebook.com/groups/3563671250574105",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "ba249b98-c63c-40a2-b536-9148599c9e36",
+    "name": "Hội Buôn Bán - Thanh Lý Đồ Cũ Mới TP HỒ CHÍ MINH",
+    "url": "https://www.facebook.com/groups/296392347485955",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "038ff5e4-e5ec-48ef-b204-7ace857bf6f3",
+    "name": "Chợ Thanh Lý Đồ Cũ TP. Hồ Chí Minh✅",
+    "url": "https://www.facebook.com/groups/2787668834825642",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "86aa7f79-742f-403e-9341-fb64abd17aba",
+    "name": "Thanh Lý Đồ Cũ-Mới TP HCM",
+    "url": "https://www.facebook.com/groups/thanhlydocumoitphcm",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "3a4dff0c-d13b-47a9-873b-d693e499f1bd",
+    "name": "THANH LÝ ĐỒ CŨ, QUẬN 2, QUẬN 9, THỦ ĐỨC",
+    "url": "https://www.facebook.com/groups/1133399754372331",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "70e81ba3-03de-4155-a90d-4fcd32574a7a",
+    "name": "CHỢ ĐỒ CŨ SINH VIÊN SÀI GÒN",
+    "url": "https://www.facebook.com/groups/179238339326235",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "dd9b0fd3-95c5-4948-85b2-b24a752c6b59",
+    "name": "Hội thanh lý đồ dùng nội thất gia đình Tp Hcm",
+    "url": "https://www.facebook.com/groups/858020484958987",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "5c847672-c05b-4150-87c4-32715fd751da",
+    "name": "Hội Thanh Lý Bàn Ghế Tủ Kệ Giường & Đồ Gia Dụng Tp Hcm",
+    "url": "https://www.facebook.com/groups/530350198093062",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "cc2cb42b-a827-431d-91ae-cf2426e061f4",
+    "name": "Hội mua bán, thanh lý đồ cũ và mới TP. Hồ Chí Minh",
+    "url": "https://www.facebook.com/groups/691396563207832",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "8f143120-82ce-47db-8b5e-c779d2c2c499",
+    "name": "THANH LÝ BÀN GHẾ TỦ TPHCM",
+    "url": "https://www.facebook.com/groups/314940725744251",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "10c88912-7338-4da0-a4de-1e2a02b486ea",
+    "name": "Thanh Lý Đồ Dùng Nội Thất TP Hồ Chí Minh",
+    "url": "https://www.facebook.com/groups/474573019233630",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "c631918a-be3c-446d-abdf-e81d5cb1eea4",
+    "name": "Hội Thanh Lý Bàn Ghế - Tủ ,Kệ Giá Xưởng Tại HCM",
+    "url": "https://www.facebook.com/groups/172179523412326",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "7012fc0e-b248-42bb-b69a-2463a61bfb94",
+    "name": "Chợ sinh viên TP Hồ Chí Minh",
+    "url": "https://www.facebook.com/groups/1301479937921769",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "19d172be-aea4-497a-a378-55ab4a0f6279",
+    "name": "Hội Thanh Lý Nệm , Tủ , Giường , Bàn Ghế Tphcm",
+    "url": "https://www.facebook.com/groups/210540676913889",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "65f91d79-feb9-4eaa-84de-24a95fb33f70",
+    "name": "Chợ Đồ Cũ Quận Gò Vấp - Hội Thanh Lý Đồ Cũ Quận Gò Vấp",
+    "url": "https://www.facebook.com/groups/chodocuquangovap",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "c0f30a57-c6bf-4696-9976-d32016fb998b",
+    "name": "Hội Thanh Lí TP.HCM (Mua & bán đồ cũ - secondhand)",
+    "url": "https://www.facebook.com/groups/hoithanhlysecondhandtphcm",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "ee2a0dc8-ea37-48b7-88aa-769446b3d706",
+    "name": "Hội thanh lý đồ đã qua sử dụng Lái thiêu- Bình Dương-TPHCM",
+    "url": "https://www.facebook.com/groups/273013453803252",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "05f4f6d2-9f4b-4c90-9d28-413da0da56f8",
+    "name": "Hội Buôn Bán Thanh Lý Đồ Cũ Mới - TPHCM",
+    "url": "https://www.facebook.com/groups/453727875019760",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "3557a4ce-143f-43f9-aa0a-860faca4f16d",
+    "name": "Hội Thanh Lý Đồ Cũ - Mới Quận Bình Thạnh",
+    "url": "Hội Thanh Lý Đồ Cũ - Mới Quận Bình Thạnh",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "1335d20a-a471-491f-8244-b5b1457f5801",
+    "name": "THANH LÝ ĐỒ CŨ - MỚI TP.HCM",
+    "url": "https://www.facebook.com/groups/9635302599866690",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "919777ed-3c54-4f99-8e70-d90983b991e3",
+    "name": "Chợ Tốt TP.HCM (Sài Gòn)",
+    "url": "https://www.facebook.com/groups/236837763632328",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "f930d4a1-20e8-47c6-9b1a-77b9861c0661",
+    "name": "Hội Thanh Lý Bàn Ghế, Tủ, Kệ, Giường, Tủ Trưng Bài tại Sài Gòn Tp Hcm",
+    "url": "https://www.facebook.com/groups/541920679770506",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "177f0053-17df-4e40-809e-dfc288e7340f",
+    "name": "Chợ Đồ Cũ Thanh Lý. Tp HCM",
+    "url": "https://www.facebook.com/groups/427072295159222",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "3eacc22f-8443-4b97-ac16-40b2babf188c",
+    "name": "Chợ đồ cũ Quận Bình Tân - TP HCM ✔️",
+    "url": "https://www.facebook.com/groups/264591395613986",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "b256a917-aaad-44f6-932d-eea75dac7803",
+    "name": "Tổng Hội Thanh Lý Đồ Cũ Tp HCM",
+    "url": "https://www.facebook.com/groups/2953370441591659",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "bfe75275-8b86-4869-bdf7-82f89214689d",
+    "name": "Thanh lý đồ cũ thành phố HCM",
+    "url": "https://www.facebook.com/groups/1374603252954952",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "7b488bff-093d-4f25-95c1-4b9f76259968",
+    "name": "PASS ĐỒ CŨ THANH LÝ",
+    "url": "https://www.facebook.com/groups/509745912757632",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "7f807e23-1639-40a2-bff5-dd46b659d21f",
+    "name": "Thanh Lý Đồ Cũ",
+    "url": "https://www.facebook.com/groups/867990687652399",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "1b9feef6-1f86-4316-88fb-5aa3faddaf82",
+    "name": "HỘI THANH LÝ ĐỒ CŨ TẠI TP HCM",
+    "url": "https://www.facebook.com/groups/648488558693694",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "b7521f53-9d2b-4125-8b62-707ee663e327",
+    "name": "Chợ Thanh Lý Đồ Cũ - Mới Tại TP.HCM",
+    "url": "https://www.facebook.com/groups/838111710952937",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "b8557999-a369-4561-a4ba-b552cdf8d4f0",
+    "name": "HỘI THANH LÝ ĐỒ DÙNG PHÒNG TRỌ TPHCM",
+    "url": "https://www.facebook.com/groups/301718287840383",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "ee1811ba-4db6-4869-aae7-0bbfd1babad0",
+    "name": "Chợ thanh lý đồ cũ - Tp.HCM",
+    "url": "https://www.facebook.com/groups/marketthanhlydocu.tphcm",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "bd99ff80-accd-455c-82e9-ea53abf06931",
+    "name": "Mua Bán - Trao Đổi đồ cũ Tp.HCM",
+    "url": "https://www.facebook.com/groups/muaban.traodoidocu.tphcm",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "ef39488a-ab61-499f-974e-cbcefaa0510c",
+    "name": "Bàn Ghế Nội Thất Giá Rẻ Thủ Đức - Quận 9 - Quận 2",
+    "url": "https://www.facebook.com/groups/371650049968859",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "b8f8f4ed-ea37-4527-bc93-2f8eeb37b6cb",
+    "name": "Thanh lý đồ dùng gia đình - Quận 7 tpHCM",
+    "url": "https://www.facebook.com/groups/1153530282247363",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "edc2d1a6-3b8c-4b21-8f7c-49b324a85cc0",
+    "name": "Nhóm Thanh Lý Đồ Cũ",
+    "url": "https://www.facebook.com/groups/1286591678124899",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "69602043-f526-4ef7-902f-ede20dc9def3",
+    "name": "Thanh Lý Đồ Dùng Sinh Viên - Gia Đình - TP.HCM",
+    "url": "https://www.facebook.com/groups/thanhlydodungtphcm",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "1650e92f-78f3-489b-949a-e94dbb5bf67a",
+    "name": "Nhóm Thanh lý đồ cũ - Đồ sinh viên",
+    "url": "https://www.facebook.com/groups/2241059285974583",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "c7ebad2b-b0b1-4c29-bb8a-9fed39d5a47b",
+    "name": "Hội Thanh Lý Đồ Dùng Sai Gòn Tphcm 2",
+    "url": "https://www.facebook.com/groups/141835436355616",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "2e6224e7-45ec-4d30-bfad-b6bb293c8c76",
+    "name": "Thanh Lý Đồ Dùng Cũ Tại Tp Hồ Chí Minh",
+    "url": "https://www.facebook.com/groups/368967739861714",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "72c14e5a-2411-4c96-bf32-ded9519d80d5",
+    "name": "Thanh Lý Đồ Cũ Sài Gòn",
+    "url": "https://www.facebook.com/groups/1474309032659119",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "8a621768-46a5-4c33-a1ff-8cbb1082a329",
+    "name": "Hội thanh lý đồ điện gia dụng TPHCM",
+    "url": "https://www.facebook.com/groups/1077197968973642",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "9521ec61-67b7-48b0-b0d8-570ff6304724",
+    "name": "Nhóm thanh lý đồ dùng Quận 8",
+    "url": "https://www.facebook.com/groups/1177737135693395",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "a7974be3-dc5c-45d0-b894-fc2175d86805",
+    "name": "Hội Thanh Lý Đồ Điện Gia Dụng HCM",
+    "url": "https://www.facebook.com/groups/415665108972270",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "960df735-a54e-4378-a9fa-6b4196f881d9",
+    "name": "Hội Thanh Lý Đồ Cũ Bình Thạnh - Thủ Đức - Quận 9",
+    "url": "https://www.facebook.com/groups/940182463382245",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "e595d88a-499c-44ac-8d34-374d9b7e8e27",
+    "name": "Chợ Đồ Cũ Tp. HCM",
+    "url": "https://www.facebook.com/groups/nhomdocuhcm",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "5abf49b0-7717-46f5-9b30-1c724604c7de",
+    "name": "THANH LÝ ĐỒ CŨ -TPHCM",
+    "url": "https://www.facebook.com/groups/1495054910714788",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "d6d58927-afe2-465b-9ee3-5a02fddb763b",
+    "name": "Thanh Lý Đồ Cũ Sinh Viên, Nhà hàng,... Hồ Chí Minh",
+    "url": "https://www.facebook.com/groups/963992839104358",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "efa79f00-69d5-442b-8cf0-efc373e6faee",
+    "name": "Mua bán giường , tủ ,nệm cũ tphcm",
+    "url": "https://www.facebook.com/groups/536914003557794",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "28441dc8-cd06-4691-8fce-dbc14786cd35",
+    "name": "HỘI BÀN GHẾ MỚI CŨ TPHCM🏡",
+    "url": "https://www.facebook.com/groups/737105663618120",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "bbaf9bd8-faa6-483a-bb76-326e76dcadf2",
+    "name": "Hội Thanh Lý đồ phòng trọ, gia dụng Quận 7, Quận 4, Nhà Bè",
+    "url": "https://www.facebook.com/groups/345099967379792",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "9edfae90-24f7-4347-8171-067eba20e781",
+    "name": "CHỢ TỐT SÀI GÒN",
+    "url": "https://www.facebook.com/groups/chototsaigontphcm",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "3ae09da4-771e-4418-849f-47ad65faca5f",
+    "name": "🛋Hội Thanh Lý Bàn Ghế, Tủ, Kệ, Chăn, Gra, Gối, Nệm tại Sài Gòn Tp Hcm",
+    "url": "https://www.facebook.com/groups/2678487739082096",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "ae0cf1eb-161b-4d1e-8b76-33a44bd27516",
+    "name": "Thanh Lý Nội Thất Sài Gòn - Chợ Nội Thất",
+    "url": "https://www.facebook.com/groups/3115960885284568",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "e0b610a7-62cf-4aff-80de-13df9aec9353",
+    "name": "Hội mua bán đồ cũ Sài Gòn TPHCM. ",
+    "url": "https://www.facebook.com/groups/muaban.thanhly.raovat.saigon",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "c23e0ae4-2080-49a9-a26c-054165c00503",
+    "name": "Hội Thanh lý đồ cũ, mới tại TP.HCM",
+    "url": "https://www.facebook.com/groups/214334515926617",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "a8396cae-e624-4fbf-8ac7-2fe18bcaf74f",
+    "name": "Chợ Nội Thất Giá Rẻ HCM",
+    "url": "https://www.facebook.com/groups/460379174305375",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "f45205b1-1bd0-43cb-8874-80b430ffb295",
+    "name": "THANH LÝ ĐỒ CŨ SÀI GÒN",
+    "url": "https://www.facebook.com/groups/472027673799235",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "175c87ec-d040-4774-a12e-1691d421cac5",
+    "name": "Hội Mua Bán Thanh Lý Đồ Dùng Cũ HCM",
+    "url": "https://www.facebook.com/groups/1724455481144507",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "7db8aaf1-7509-4b7f-9486-7b243c224d7e",
+    "name": "CHỢ ĐỒ CŨ SINH VIÊN SÀI GÒN",
+    "url": "https://www.facebook.com/groups/1542756226288987",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "0aa45ce6-5365-4a23-af42-d27aba914daa",
+    "name": "Hội Thanh Lý, Mua Bán Đồ Cũ TPHCM",
+    "url": "https://www.facebook.com/groups/425103907122909",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "02ebe32d-d64a-4a04-a38f-6681c367449d",
+    "name": "Chợ Thanh Lý Đồ Cũ",
+    "url": "https://www.facebook.com/groups/2855696111357900",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "9821f388-307e-4cd8-828f-058743608a79",
+    "name": "THANH LÝ ĐỒ CŨ HỒ CHÍ MINH",
+    "url": "https://www.facebook.com/groups/1259925844984077",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "6a41148f-6eed-419f-b2a4-e51f8f863fcc",
+    "name": "Thanh Lý Đồ Cũ Quận 7",
+    "url": "https://www.facebook.com/groups/858079578212948",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "4c256e44-4c38-4a61-9277-511e5d1b2897",
+    "name": "Chợ Thanh lý Đồ cũ Q7 .Q4",
+    "url": "https://www.facebook.com/groups/1461524687447348",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "9b7b0d77-2bd2-4879-88bb-4bca56d2fc27",
+    "name": "Hội thanh lý đồ cũ - Tp.HCM",
+    "url": "https://www.facebook.com/groups/nhomthanhlydocu.tphcm",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "bdd9c076-8f59-4bda-ac8d-64cb9cf87922",
+    "name": "HỘI THANH LÝ ĐỒ CŨ MỚI TẠI THANH PHỐ HỒ CHÍ MINH✅",
+    "url": "https://www.facebook.com/groups/993673881045209",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "6cdf2c2e-6c1c-4991-b8c7-e1dff95f49d1",
+    "name": "Thanh Lý Đồ Cũ Sài Gòn",
+    "url": "https://www.facebook.com/groups/751995359094598",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "8852463c-4440-4187-a391-61686f812b09",
+    "name": "Hội Thanh Lý Tủ Lạnh, Máy Giặt,Giường Tủ Quần Áo, Sofa - TPHCM",
+    "url": "https://www.facebook.com/groups/280215621080842",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "667d5e19-bee9-4d09-9238-c7600356808f",
+    "name": "Chợ Đồ Cũ TPHCM",
+    "url": "https://www.facebook.com/groups/2001133273473320",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "bedadc3b-e3ea-429b-8e79-cef779c4df00",
+    "name": "  Thanh lý đồ cũ Tp HCM",
+    "url": "https://www.facebook.com/groups/697480547857367",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "f38d560b-daea-4976-bde1-891fecb57bfc",
+    "name": "Thanh Lý & Mua Bán đồ cũ giá rẻ NỘI THẤT & ĐỒ GIA DỤNG - TPHCM",
+    "url": "https://www.facebook.com/groups/932847500932095",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "b6c3506c-89ae-4d00-9bb0-8616361bae05",
+    "name": "Hội Thanh Lý Đồ Dùng Cũ Tại Tp Hồ Chí Minh",
+    "url": "https://www.facebook.com/groups/317720775838296",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "7af436fd-cb66-4042-bed9-79bda5bea017",
+    "name": "Thanh Lý Đồ Gia Dụng TP.Thủ Đức",
+    "url": "https://www.facebook.com/groups/526171316218951",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "ad682661-6703-4e14-bc80-a1f28d053a0b",
+    "name": "Hội Thanh Lý Đồ Gia Dụng TPHCM",
+    "url": "https://www.facebook.com/groups/556660365660467",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "b9b6d8ce-f576-4711-9dd6-15a9812016f5",
+    "name": "Thanh lý Đồ Dùng Phòng Trọ, Sinh Viên Nhóm Công khai  · 5,4K thành viên",
+    "url": "https://www.facebook.com/groups/322733177046203",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "7d53fa1a-412e-4071-8394-e4fd9dadc265",
+    "name": "CHỢ ĐỒ CŨ THANH LÝ - HỒ CHÍ MINH",
+    "url": "https://www.facebook.com/groups/395846271220794",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "1e6e4e94-1170-4ef4-aeea-576baeddc915",
+    "name": "Hội thanh lý đồ cũ Sài Gòn tpHCM",
+    "url": "https://www.facebook.com/groups/698448566691824",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "a19ef06d-90ac-4ca6-aec4-00b90bbb792d",
+    "name": "Hội Thanh Lý Đồ Cũ Thành Phố Hồ Chí Minh Nhóm Công khai  · 3,8K thành viên",
+    "url": "https://www.facebook.com/groups/1773816479603935",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "cfbbcca3-3158-459d-942c-c5731304fc9d",
+    "name": "HỘI THANH LÝ ĐỒ CŨ VÀ MỚI CHẤT LƯỢNG TP.HCM",
+    "url": "https://www.facebook.com/groups/618087920452241",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "a12a03bb-a327-419e-8b0d-1532445a98b9",
+    "name": "Thanh lý đồ cũ TP. HCM",
+    "url": "https://www.facebook.com/groups/135580208222776",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "6de90880-6aa9-4c35-bb28-da649acf0de9",
+    "name": "Nhóm Thanh Lý ĐỒ Cũ Sài Gòn",
+    "url": "https://www.facebook.com/groups/1600136623610439",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "bcfa9ab0-1d63-48a3-85f2-66ba00092846",
+    "name": "Chợ ĐỒ CŨ - NỘI THẤT - ĐỒ ĐIỆN TP.HCM✅",
+    "url": "https://www.facebook.com/groups/756632261666241",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "c2ad3bc8-c114-4efe-b064-1b905891823e",
+    "name": "Chợ Pass đồ sinh viên giá rẻ. Thành phố HCM",
+    "url": "https://www.facebook.com/groups/826425868888194",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "8204d07a-f734-4b3c-b2db-a3338cc0a0a9",
+    "name": "NHÓM THANH LÝ ĐỖ CŨ TPHCM UY TÍN",
+    "url": "https://www.facebook.com/groups/807235864946308",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "e4d9680e-1314-4471-9cfa-b28a470f60f5",
+    "name": "Thanh lý đồ cũ mới tại TpHCM",
+    "url": "https://www.facebook.com/groups/334829542776366",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "8e3d5320-c8c8-468d-b51b-dd4b12268406",
+    "name": "Đồ cũ thanh lý giá rẻ - Tp.HCM",
+    "url": "https://www.facebook.com/groups/docuthanhlygiare.tphcm",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "f75c8dba-50a1-4f83-b2c6-ccebfd39cb80",
+    "name": "Hội Thanh Lý Đồ Dùng Gia Đình TpHCM",
+    "url": "https://www.facebook.com/groups/126949741355626",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "3f67b730-7736-404a-8ecf-36bb166aad8b",
+    "name": "Hội Thanh Lý Đồ Gia Dụng TP.HCM",
+    "url": "https://www.facebook.com/groups/634882487619276",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "898b6499-b007-43e5-8d72-3c9e1ea710c5",
+    "name": "HỘI THANH LÍ ĐỒ CŨ TPHCM",
+    "url": "https://www.facebook.com/groups/2800529836648909",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "6036ba59-7456-4f56-b4c9-09225c977f8d",
+    "name": "Thanh Lý Tủ Lạnh, Máy Giặt, Máy Lạnh cũ tại TPHCM",
+    "url": "https://www.facebook.com/groups/696667165461675",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "2ce415d3-efd3-4983-a974-6421aaf0b03e",
+    "name": "Hội Thanh Lý Đồ Dùng Gia Đình, Phòng Trọ Quận 12 - Gò Vấp - Thủ Đức",
+    "url": "https://www.facebook.com/groups/hoithanhlydodunggiadinh",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "82d566f6-e8c9-4db0-a46f-f78c64b1eaef",
+    "name": "Chợ Sinh Viên Sài Gòn",
+    "url": "https://www.facebook.com/groups/166012577396130",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "d6f865bb-15a9-49b6-9bc2-ff85abdc9d03",
+    "name": "HỘI THANH LÝ ĐỒ CŨ, NỘI THẤT... GIÁ RẺ QUẬN 10",
+    "url": "https://www.facebook.com/groups/1150312328707196",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "10f7cdd7-4585-4759-8f8e-3cf2f85ceb30",
+    "name": "Thanh lý Đồ Dùng Phòng Trọ, Sinh Viên",
+    "url": "https://www.facebook.com/groups/503084151467519",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "247017b0-241e-4cc5-91cb-3bd883317029",
+    "name": "Thanh lý đồ gia dụng HCM",
+    "url": "https://www.facebook.com/groups/1408724479473970",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "0f50dd33-ac55-467a-8677-21fbd431844f",
+    "name": "Hội thanh lý đồ gia dụng TPHCM",
+    "url": "https://www.facebook.com/groups/193692907921666",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "7811ae57-059e-4a4c-8149-19fdd465659c",
+    "name": "Hội Thanh Lý Đồ Dùng. - TP Hồ Chí Minh",
+    "url": "https://www.facebook.com/groups/hungphatonline",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "057ba4e6-e1fc-4c0d-ac09-15ff5a5b7d8f",
+    "name": "CHỢ ĐỒ CŨ TP.HCM",
+    "url": "https://www.facebook.com/groups/355768355004089",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "0a8a59e1-f9ad-4a35-8bf9-18854ac77d78",
+    "name": "THANH LÝ ĐỒ CŨ TẠI TP. HỒ CHÍ MINH",
+    "url": "https://www.facebook.com/groups/508569767041116",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "7ab4d043-d872-4887-942a-1f2fab0f8b1f",
+    "name": "THANH LÝ ĐỒ DÙNG SINH VIÊN SÀI GÒN",
+    "url": "https://www.facebook.com/groups/1330275887610404",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "d2025f99-c527-4b6d-970b-0aa0250607ac",
+    "name": "HỘI THANH LÝ ĐỒ DÙNG CHO GIA ĐÌNH",
+    "url": "https://www.facebook.com/groups/1129296987168450",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "794af05a-9679-4c41-9b7f-7bd35d856ed2",
+    "name": "THANH LÝ TẤT TẦN TẬT TP. HCM",
+    "url": "https://www.facebook.com/groups/508294875997949",
+    "description": "",
+    "active": true,
+    "post_type": "marketplace"
+  },
+  {
+    "id": "fa98e926-e1c6-43ed-9c6a-1c7593225b02",
+    "name": "Hội mua bán - thanh lý đồ gia dụng tp H",
+    "url": "https://www.facebook.com/groups/275422123074340",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
+  },
+  {
+    "id": "563ede5d-8eb3-49ff-9c54-6a79911183b2",
+    "name": "CHỢ THANH LÝ ĐỒ DÙNG SINH VIÊN GIÁ RẺ CÒN DÙNG TỐT TP.HCM",
+    "url": "https://www.facebook.com/groups/1119713582416034",
+    "description": "",
+    "active": true,
+    "post_type": "normal"
   }
 ]
