@@ -6,6 +6,7 @@ const NAV = [
   { to: '/accounts',      icon: '👤',  label: 'Tài khoản FB' },
   { to: '/groups',        icon: '👥',  label: 'Nhóm FB' },
   { to: '/history',       icon: '📋',  label: 'Lịch sử' },
+  // { to: '/browser',       icon: '🌐',  label: 'Mở trình duyệt' },
 ]
 
 const styles = {

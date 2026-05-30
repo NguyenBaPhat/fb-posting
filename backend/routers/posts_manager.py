@@ -24,17 +24,21 @@ def get_saved_posts():
 # ── Fetch ─────────────────────────────────────────────────────────────────────
 
 def _merge_saved_posts(new_posts: list) -> list:
-    """Merge new posts into saved list, deduplicating by post_url+account_id."""
+    """Thêm bài mới vào danh sách đã lưu, bỏ qua nếu post_url đã tồn tại."""
     saved = read_json("managed_posts")
-    index = {
-        (p["post_url"], p.get("account_id", "")): p for p in saved
-    }
+    existing_urls = {p["post_url"] for p in saved if p.get("post_url")}
+    added = 0
     for p in new_posts:
-        key = (p["post_url"], p.get("account_id", ""))
-        index[key] = p
-    merged = list(index.values())
-    write_json("managed_posts", merged)
-    return merged
+        url = p.get("post_url", "")
+        if url and url not in existing_urls:
+            saved.append(p)
+            existing_urls.add(url)
+            added += 1
+    if added:
+        write_json("managed_posts", saved)
+    logger.info("[PostsManager] Thêm %d bài mới (bỏ qua %d duplicate)",
+                added, len(new_posts) - added)
+    return saved
 
 
 async def _run_fetch_job(

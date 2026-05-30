@@ -1309,7 +1309,12 @@ async def comment_on_multiple(
         async with async_playwright() as p:
             browser = await p.chromium.launch(
                 headless=headless,
-                args=["--disable-blink-features=AutomationControlled"],
+                args=[
+                    "--disable-blink-features=AutomationControlled",
+                    "--disable-dev-shm-usage",
+                    "--disable-gpu",
+                    "--no-sandbox",
+                ],
             )
             context_kwargs = {
                 "user_agent": USER_AGENT,
@@ -1403,7 +1408,12 @@ async def post_to_group(
     async with async_playwright() as p:
         browser = await p.chromium.launch(
             headless=headless,
-            args=["--disable-blink-features=AutomationControlled"],
+            args=[
+                    "--disable-blink-features=AutomationControlled",
+                    "--disable-dev-shm-usage",
+                    "--disable-gpu",
+                    "--no-sandbox",
+                ],
         )
         context_kwargs = {
             "user_agent": USER_AGENT,
@@ -1496,7 +1506,12 @@ async def post_to_multiple(
             async with async_playwright() as p:
                 browser = await p.chromium.launch(
                     headless=headless,
-                    args=["--disable-blink-features=AutomationControlled"],
+                    args=[
+                    "--disable-blink-features=AutomationControlled",
+                    "--disable-dev-shm-usage",
+                    "--disable-gpu",
+                    "--no-sandbox",
+                ],
                 )
                 context_kwargs = {
                     "user_agent": USER_AGENT,

@@ -68,85 +68,164 @@ async def _resolve_group_numeric_id(page, group_url: str) -> Optional[str]:
         return None
 
 
-def _parse_urls_from_html(html: str, group_id: str) -> list:
-    """Extract post URLs from Facebook's embedded JSON (permalink_url field)."""
-    raw_urls = re.findall(r'"permalink_url":"(https:[^"]+)"', html)
-    needle = f"/groups/{group_id}/posts/"
-    seen: set = set()
-    urls = []
-    for raw in raw_urls:
-        url = raw.replace("\\/", "/")  # noqa: W605
-        if needle not in url:
+def _parse_posts_from_html(html: str, group_id: str) -> list:
+    """Parse posts from Facebook embedded JSON.
+
+    Strategy: find "creation_time" immediately followed by the post "url"
+    (within 400 chars), then look 40 kB before that anchor for the
+    "text" field that contains the post body.
+    """
+    import json as _json
+
+    posts: dict = {}
+
+    # Step 1: Collect (pid, url, utime) via creation_time + url in JSON
+    for m in re.finditer(r'"creation_time":(\d+)', html):
+        ctime_ms = int(m.group(1)) * 1000
+        nearby = html[m.start(): m.start() + 400]
+        url_m = re.search(
+            r'"url":"(https:[^"]*groups[^"]*posts[^"]*)"', nearby
+        )
+        if not url_m:
             continue
-        # Normalize trailing slash
-        if not url.endswith("/"):
-            url += "/"
-        if url not in seen:
-            seen.add(url)
-            urls.append(url)
-    return urls
+        raw_url = url_m.group(1).replace("\\/", "/")
+        # Normalize về www.facebook.com
+        raw_url = re.sub(
+            r'https?://(web\.|m\.)?facebook\.com',
+            'https://www.facebook.com',
+            raw_url,
+        )
+        if f"/groups/{group_id}/posts/" not in raw_url:
+            continue
+        pid_m = re.search(r"/posts/(\d+)", raw_url)
+        if not pid_m:
+            continue
+        pid = pid_m.group(1)
+        url = raw_url if raw_url.endswith("/") else raw_url + "/"
+        posts.setdefault(pid, {"url": url, "content": "", "utime": ctime_ms})
+
+    # Step 2: For each post, find the creation_time anchor and look
+    #         40 kB backwards for the longest "text" field (= post body).
+    for pid, data in posts.items():
+        ct_idx = -1
+        search = 0
+        while True:
+            search = html.find('"creation_time":', search)
+            if search == -1:
+                break
+            nearby = html[search: search + 400].replace("\\/", "/")
+            if f"/posts/{pid}/" in nearby:
+                ct_idx = search
+                break
+            search += 1
+
+        if ct_idx == -1:
+            continue
+
+        chunk = html[max(0, ct_idx - 40000): ct_idx]
+        texts = re.findall(r'"text":"((?:[^"\\]|\\.){100,})"', chunk)
+        if not texts:
+            continue
+        raw = texts[-1]
+        try:
+            data["content"] = _json.loads(f'"{raw}"')
+        except Exception:
+            data["content"] = (
+                raw.replace("\\n", "\n")
+                .replace("\\t", "\t")
+                .replace('\\"', '"')
+            )
+
+    return [
+        {
+            "postUrl": d["url"],
+            "content": d["content"],
+            "utime": d["utime"],
+            "timeText": "",
+        }
+        for d in posts.values()
+    ]
 
 
 _EXTRACT_POSTS_JS = r"""
 (groupId) => {
-    function cleanUrl(href) {
-        try {
-            const u = new URL(href);
-            // accept /posts/{id} and /permalink/{id}
-            if (/\/(posts|permalink)\/\d+\/?$/.test(u.pathname) &&
-                u.pathname.includes('/groups/')) {
-                let p = u.pathname;
-                if (!p.endsWith('/')) p += '/';
-                return u.origin + p;
-            }
-        } catch {}
-        return null;
+    const html = document.documentElement.innerHTML;
+    const posts = {};
+
+    // Step 1: find (pid, url, utime) via "creation_time" + nearby "url" in JSON.
+    // Facebook stores them consecutively: "creation_time":N,...,"url":"groups/.../posts/PID/"
+    const ctRe = /"creation_time":(\d+)/g;
+    let m;
+    while ((m = ctRe.exec(html)) !== null) {
+        const ctimeMs = parseInt(m[1]) * 1000;
+        const nearby = html.slice(m.index, m.index + 400);
+        const um = nearby.match(
+            /"url":"(https:\\\/\\\/www\.facebook\.com\\\/groups\\\/[^"]*\/posts\/(\d+)[^"]*)"/
+        );
+        if (!um) continue;
+        const pid = um[2];
+        const rawUrl = um[1].replace(/\\\//g, '/');
+        if (!rawUrl.includes('/groups/' + groupId + '/posts/')) continue;
+        const url = rawUrl.endsWith('/') ? rawUrl : rawUrl + '/';
+        if (!posts[pid]) posts[pid] = { url, content: '', utime: ctimeMs };
     }
 
-    const results = [];
-    const seenUrl = new Set();
+    // Step 2: for each post, look 40 kB BEFORE the creation_time anchor for
+    // the "text" field that holds the post body (longest match = post content).
+    for (const [pid, d] of Object.entries(posts)) {
+        // Find the creation_time that is followed by this pid's URL
+        let ctIdx = -1;
+        let search = 0;
+        while (true) {
+            const idx = html.indexOf('"creation_time":', search);
+            if (idx === -1) break;
+            const nearby = html.slice(idx, idx + 400).replace(/\\\//g, '/');
+            if (nearby.includes('/posts/' + pid + '/')) { ctIdx = idx; break; }
+            search = idx + 1;
+        }
+        if (ctIdx === -1) continue;
 
-    // Strategy: find content divs, walk up to find the post container + link
-    const msgEls = [
-        ...document.querySelectorAll(
-            '[data-ad-comet-preview="message"],[data-ad-preview="message"]'
-        )
-    ];
+        const chunk = html.slice(Math.max(0, ctIdx - 40000), ctIdx);
+        // Find all "text":"..." values with 100+ chars
+        const textRe = /"text":"((?:[^"\\]|\\.){100,})"/g;
+        let lastText = null, tm;
+        while ((tm = textRe.exec(chunk)) !== null) lastText = tm[1];
+        if (!lastText) continue;
+        try { d.content = JSON.parse('"' + lastText + '"'); }
+        catch { d.content = lastText.replace(/\\n/g, '\n').replace(/\\t/g, '\t'); }
+    }
 
+    // Step 3: fill still-missing content from live DOM article elements
+    const msgEls = [...document.querySelectorAll(
+        '[data-ad-comet-preview="message"],[data-ad-preview="message"]'
+    )];
     for (const el of msgEls) {
-        const content = (el.innerText || '').trim().slice(0, 600);
-        if (!content) continue;
-
-        // Walk up to find a /posts/ link
-        let postUrl = null;
-        let node = el.parentElement;
-        for (let depth = 0; depth < 30 && node; depth++, node = node.parentElement) {
-            const links = node.querySelectorAll('a[href*="/posts/"],a[href*="/permalink/"]');
-            for (const a of links) {
-                const url = cleanUrl(a.href);
-                if (url && url.includes('/groups/' + groupId + '/')) {
-                    postUrl = url;
-                    break;
-                }
+        const text = (el.innerText || '').trim();
+        if (!text) continue;
+        const article = el.closest('[role="article"]') || el;
+        let pid = null;
+        for (const a of article.querySelectorAll('a[href*="set=pcb."]')) {
+            const mm = a.href.match(/set=pcb\.(\d+)/);
+            if (mm) { pid = mm[1]; break; }
+        }
+        if (!pid) {
+            for (const a of article.querySelectorAll('a[href*="/posts/"]')) {
+                const mm = a.href.match(/\/posts\/(\d+)/);
+                if (mm) { pid = mm[1]; break; }
             }
-            if (postUrl) break;
         }
-
-        if (!postUrl || seenUrl.has(postUrl)) continue;
-        seenUrl.add(postUrl);
-
-        // Try to get timestamp
-        let utime = null, timeText = '';
-        const abbrEl = (el.closest('[role="article"]') || document)
-            .querySelector('abbr[data-utime]');
-        if (abbrEl) {
-            utime = parseInt(abbrEl.getAttribute('data-utime')) * 1000;
-            timeText = abbrEl.title || abbrEl.innerText || '';
-        }
-
-        results.push({ postUrl, content, utime, timeText });
+        if (pid && posts[pid] && !posts[pid].content)
+            posts[pid].content = text.slice(0, 2000);
     }
-    return results;
+
+    return Object.entries(posts)
+        .filter(([, d]) => d.url && (!groupId || d.url.includes('/groups/' + groupId + '/')))
+        .map(([, d]) => ({
+            postUrl: d.url,
+            content: d.content || '',
+            utime: d.utime,
+            timeText: d.utime ? new Date(d.utime).toLocaleString('vi-VN') : '',
+        }));
 }
 """
 
@@ -175,55 +254,127 @@ async def _scrape_my_posts_in_group(
     else:
         target = group_url
 
+    gid = group_id or group_identifier or ""
+
+    # ── Intercept GraphQL responses ────────────────────────────────────────
+    # Scroll-triggered posts arrive via XHR, not embedded in page HTML.
+    # We capture every /api/graphql response and parse post data from them.
+    captured_bodies: list[str] = []
+
+    async def _on_response(response):
+        try:
+            url_r = response.url
+            if "graphql" not in url_r and "/api/" not in url_r:
+                return
+            ct = response.headers.get("content-type", "")
+            if "json" not in ct and "javascript" not in ct and "text" not in ct:
+                return
+            body = await response.text()
+            if '"creation_time"' in body or '"permalink_url"' in body:
+                captured_bodies.append(body)
+        except Exception:
+            pass
+
+    page.on("response", _on_response)
+    # ──────────────────────────────────────────────────────────────────────
+
     logger.info("[Scraper] Điều hướng đến: %s", target)
     await page.goto(target, wait_until="domcontentloaded")
     await _dismiss_cookie_banner(page)
 
-    # Wait for initial render
+    # Chờ render ban đầu
     try:
-        await page.wait_for_load_state("networkidle", timeout=15000)
+        await page.wait_for_load_state("networkidle", timeout=20000)
     except Exception:
-        await page.wait_for_timeout(4000)
+        await page.wait_for_timeout(5000)
 
-    # Scroll 3 times to load more posts
-    for i in range(3):
+    # Scroll từng bước — mỗi lần scroll kích hoạt GraphQL fetch mới
+    prev_height = 0
+    for i in range(max_scroll):
         await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
         try:
-            await page.wait_for_load_state("networkidle", timeout=6000)
+            await page.wait_for_load_state("networkidle", timeout=8000)
         except Exception:
-            await page.wait_for_timeout(2500)
-        logger.debug("[Scraper] Scroll %d/3 | %s", i + 1, group["name"])
+            pass
+        await page.wait_for_timeout(2000)
+
+        cur_height = await page.evaluate("document.body.scrollHeight")
+        logger.debug(
+            "[Scraper] Scroll %d/%d height=%d→%d | %s",
+            i + 1, max_scroll, prev_height, cur_height, group["name"],
+        )
+        if cur_height == prev_height:
+            logger.info(
+                "[Scraper] Không có content mới sau scroll %d, dừng | %s",
+                i + 1, group["name"],
+            )
+            break
+        prev_height = cur_height
+
+    # Chờ thêm để đảm bảo tất cả lazy-load xong
+    await page.wait_for_timeout(3000)
+    try:
+        await page.wait_for_load_state("networkidle", timeout=10000)
+    except Exception:
+        pass
+
+    page.remove_listener("response", _on_response)
 
     logger.info(
-        "[Scraper] URL: %s | title: %s", page.url, await page.title()
+        "[Scraper] URL: %s | title: %s | graphql_bodies=%d",
+        page.url, await page.title(), len(captured_bodies),
     )
 
-    # Primary: JS evaluation extracts URL+content from live DOM
-    dom_posts = []
-    try:
-        dom_posts = await page.evaluate(_EXTRACT_POSTS_JS, group_id or "")
-        logger.info(
-            "[Scraper] DOM: %d bài | %s", len(dom_posts), group["name"]
-        )
-    except Exception as e:
-        logger.warning("[Scraper] JS eval thất bại: %s", e)
-
-    # Fallback: extract URLs from embedded JSON then return URL-only entries
+    # Lấy HTML SAU KHI đã scroll xong hoàn toàn
     html = await page.content()
     group_slug = re.sub(r"[^\w]", "_", group.get("name", "group"))[:40]
     await _save_html_debug(html, f"scraper_{group_slug}")
 
-    if dom_posts:
-        return dom_posts
+    # ── Parse từ tất cả nguồn, merge theo thứ tự ưu tiên ─────────────────
 
-    logger.info("[Scraper] Dùng fallback HTML parsing | %s", group["name"])
-    html_urls = _parse_urls_from_html(html, group_id or group_identifier or "")
-    posts = [
-        {"postUrl": u, "content": "", "utime": None, "timeText": ""}
-        for u in html_urls
-    ]
-    logger.info("[Scraper] HTML: %d bài | %s", len(posts), group["name"])
-    return posts
+    merged: dict = {}  # postUrl → post dict
+
+    def _merge(posts: list, label: str) -> None:
+        for p in posts:
+            url = p.get("postUrl", "")
+            if not url:
+                continue
+            if url not in merged:
+                merged[url] = p
+            else:
+                if p.get("content") and not merged[url].get("content"):
+                    merged[url]["content"] = p["content"]
+                if p.get("utime") and not merged[url].get("utime"):
+                    merged[url]["utime"] = p["utime"]
+                if p.get("timeText") and not merged[url].get("timeText"):
+                    merged[url]["timeText"] = p["timeText"]
+        logger.info(
+            "[Scraper] %s: +%d bài → tổng %d | %s",
+            label, len(posts), len(merged), group["name"],
+        )
+
+    # 1. GraphQL XHR responses (ưu tiên cao nhất — có đủ data nhất)
+    gql_posts: list = []
+    for body in captured_bodies:
+        gql_posts.extend(_parse_posts_from_html(body, gid))
+    _merge(gql_posts, "GraphQL")
+
+    # 2. Embedded JSON trong page HTML
+    html_posts = _parse_posts_from_html(html, gid)
+    _merge(html_posts, "HTML")
+
+    # 3. Live DOM via JS evaluate (lấy content từ rendered DOM)
+    try:
+        dom_posts = await page.evaluate(_EXTRACT_POSTS_JS, gid)
+        _merge(dom_posts, "DOM-JS")
+    except Exception as e:
+        logger.warning("[Scraper] JS eval thất bại: %s", e)
+
+    result = list(merged.values())
+    logger.info(
+        "[Scraper] Tổng cuối: %d bài | %s", len(result), group["name"]
+    )
+    return result
 
 
 async def fetch_posts_for_accounts(
@@ -261,7 +412,12 @@ async def fetch_posts_for_accounts(
         async with async_playwright() as p:
             browser = await p.chromium.launch(
                 headless=headless,
-                args=["--disable-blink-features=AutomationControlled"],
+                args=[
+                    "--disable-blink-features=AutomationControlled",
+                    "--disable-dev-shm-usage",
+                    "--disable-gpu",
+                    "--no-sandbox",
+                ],
             )
             ctx_kwargs = {
                 "user_agent": USER_AGENT,
@@ -287,25 +443,46 @@ async def fetch_posts_for_accounts(
 
                 for group in groups:
                     _emit(account["email"], f"Đang quét: {group['name']}")
-                    try:
-                        scraped = await _scrape_my_posts_in_group(
-                            page, group, fb_user_id, max_scroll
-                        )
-                        for item in scraped:
-                            all_posts.append({
-                                "id": f"{account_id}::{item['postUrl']}",
-                                "account_id": account_id,
-                                "account_email": account["email"],
-                                "group_id": group["id"],
-                                "group_name": group["name"],
-                                "group_url": group["url"],
-                                "post_url": item["postUrl"],
-                                "content": item["content"],
-                                "utime": item["utime"],
-                                "time_text": item["timeText"],
-                            })
-                    except Exception as e:
-                        logger.warning("[Scraper] Lỗi quét %s: %s", group["name"], e)
+                    scraped = []
+                    for attempt in range(2):
+                        try:
+                            scraped = await _scrape_my_posts_in_group(
+                                page, group, fb_user_id, max_scroll
+                            )
+                            break
+                        except Exception as e:
+                            err = str(e)
+                            if "Page crashed" in err and attempt == 0:
+                                logger.warning(
+                                    "[Scraper] Page crashed, mở page mới | %s",
+                                    group["name"],
+                                )
+                                try:
+                                    await page.close()
+                                except Exception:
+                                    pass
+                                page = await context.new_page()
+                                # chờ hệ thống giải phóng bộ nhớ
+                                await page.wait_for_timeout(3000)
+                            else:
+                                logger.warning(
+                                    "[Scraper] Lỗi quét %s: %s",
+                                    group["name"], e,
+                                )
+                                break
+                    for item in scraped:
+                        all_posts.append({
+                            "id": f"{account_id}::{item['postUrl']}",
+                            "account_id": account_id,
+                            "account_email": account["email"],
+                            "group_id": group["id"],
+                            "group_name": group["name"],
+                            "group_url": group["url"],
+                            "post_url": item["postUrl"],
+                            "content": item["content"],
+                            "utime": item["utime"],
+                            "time_text": item["timeText"],
+                        })
                     done += 1
                     _emit(account["email"], f"Xong: {group['name']}")
 
@@ -319,98 +496,160 @@ async def fetch_posts_for_accounts(
     return all_posts
 
 
-async def _delete_single_post(page, post_url: str) -> dict:
-    """Delete one Facebook post by navigating to it and using the action menu."""
-    from .fb_poster import _dismiss_cookie_banner
 
-    logger.info("[Scraper] Xóa bài: %s", post_url)
-    await page.goto(post_url, wait_until="domcontentloaded")
-    await page.wait_for_timeout(4000)
-    await _dismiss_cookie_banner(page)
 
-    # Open the 3-dot action menu on the post
-    menu_selectors = [
-        'div[role="article"] div[aria-label="Hành động cho bài viết này"]',
-        'div[role="article"] div[aria-label="Actions for this post"]',
-        'div[role="article"] div[aria-label*="Hành động"]',
-        'div[role="article"] div[aria-label*="Action"]',
-    ]
-    clicked_menu = False
-    for sel in menu_selectors:
-        try:
-            btn = page.locator(sel).first
-            if await btn.is_visible(timeout=3000):
-                await btn.click()
-                clicked_menu = True
-                break
-        except Exception:
-            continue
+_FIND_MENU_BTN_JS = """(postId) => {
+    const prefixes = [
+        'Hành động với bài viết này',
+        'Hành động cho bài viết này',
+        'Hành động đối với bài viết này',
+        'Actions for this post',
+    ];
+    const match = (lbl) => prefixes.some(k => lbl === k || lbl.startsWith(k));
 
-    if not clicked_menu:
-        try:
-            found = await page.evaluate("""() => {
-                const art = document.querySelector('div[role="article"]');
-                if (!art) return false;
-                for (const b of [...art.querySelectorAll('div[role="button"]')].reverse()) {
-                    const label = b.getAttribute('aria-label') || '';
-                    if (label.includes('Hành động') || label.includes('Action') || label.includes('More')) {
-                        b.click(); return true;
+    // Strategy 1: tìm qua link chứa post ID (chính xác nhất)
+    if (postId) {
+        for (const a of document.querySelectorAll(`a[href*="${postId}"]`)) {
+            let node = a.parentElement;
+            for (let i = 0; i < 30 && node; i++, node = node.parentElement) {
+                for (const b of node.querySelectorAll('[role="button"]')) {
+                    const lbl = (b.getAttribute('aria-label') || '').trim();
+                    if (match(lbl)) {
+                        b.scrollIntoView({ block: 'center' });
+                        b.click();
+                        return lbl;
                     }
                 }
-                return false;
-            }""")
-            if found:
-                clicked_menu = True
-                await page.wait_for_timeout(1500)
-        except Exception:
-            pass
+            }
+        }
+    }
+
+    // Strategy 2: startsWith match toàn trang — lấy button đầu tiên tìm được
+    for (const b of document.querySelectorAll('[role="button"]')) {
+        const lbl = (b.getAttribute('aria-label') || '').trim();
+        if (match(lbl)) {
+            b.scrollIntoView({ block: 'center' });
+            b.click();
+            return lbl;
+        }
+    }
+
+    // Debug info
+    const links = postId
+        ? [...document.querySelectorAll(`a[href*="${postId}"]`)].map(a => a.href.split('?')[0])
+        : [];
+    const actionBtns = [...document.querySelectorAll('[role="button"][aria-label]')]
+        .map(b => b.getAttribute('aria-label'))
+        .filter(l => l.includes('Hành động') || l.includes('Action'));
+    return JSON.stringify({ links: links.slice(0, 3), actionBtns });
+}"""
+
+
+async def _delete_single_post(page, post_url: str) -> dict:
+    """Navigate to post → click 3-dot → Xóa bài viết → confirm Xóa."""
+    from .fb_poster import _dismiss_cookie_banner
+
+    post_url = re.sub(
+        r'https?://(web\.|m\.)?facebook\.com',
+        'https://www.facebook.com', post_url,
+    )
+    logger.info("[Scraper] Xóa bài: %s", post_url)
+
+    try:
+        await page.goto(post_url, wait_until="domcontentloaded")
+    except Exception as e:
+        if "Page crashed" in str(e):
+            await page.wait_for_timeout(3000)
+            try:
+                await page.goto(post_url, wait_until="domcontentloaded")
+            except Exception as e2:
+                return {"success": False, "message": f"Page crashed: {e2}"}
+        else:
+            return {"success": False, "message": str(e)}
+
+    await page.wait_for_timeout(5000)
+    try:
+        await page.wait_for_load_state("networkidle", timeout=15000)
+    except Exception:
+        pass
+    await _dismiss_cookie_banner(page)
+
+    pid_m = re.search(r'/posts/(\d+)|/permalink/(\d+)', post_url)
+    post_id = (pid_m.group(1) or pid_m.group(2)) if pid_m else ""
+
+    # ── Bước 1: Click nút 3 chấm — retry 3 lần, chờ 2s giữa mỗi lần ──────
+    clicked_menu = None
+    for attempt in range(3):
+        if attempt > 0:
+            await page.wait_for_timeout(2000)
+        result = await page.evaluate(_FIND_MENU_BTN_JS, post_id)
+        # Nếu trả về string JSON → chưa tìm được, log và retry
+        if result and result.startswith('{'):
+            logger.warning("[Scraper] Attempt %d: chưa tìm thấy nút 3 chấm | %s",
+                           attempt + 1, result)
+        elif result:
+            clicked_menu = result
+            break
 
     if not clicked_menu:
-        return {"success": False, "message": "Không tìm thấy menu bài viết (không có quyền xóa)"}
+        return {"success": False, "message": "Không tìm thấy nút 3 chấm (không có quyền xóa)"}
 
+    logger.info("[Scraper] Click 3 chấm: %s", clicked_menu)
     await page.wait_for_timeout(1500)
 
-    delete_selectors = [
-        'div[role="menuitem"]:has-text("Xóa bài viết")',
-        'div[role="menuitem"]:has-text("Delete post")',
-        'div[role="menu"] span:has-text("Xóa bài viết")',
-        'div[role="menu"] span:has-text("Delete post")',
-    ]
-    clicked_delete = False
-    for sel in delete_selectors:
-        try:
-            btn = page.locator(sel).first
-            if await btn.is_visible(timeout=2000):
-                await btn.click()
-                clicked_delete = True
-                break
-        except Exception:
-            continue
+    # ── Bước 2: Click "Xóa bài viết" — retry 2 lần ───────────────────────
+    deleted = None
+    for attempt in range(2):
+        if attempt > 0:
+            await page.wait_for_timeout(1500)
+        deleted = await page.evaluate("""() => {
+            for (const el of document.querySelectorAll('[role="menuitem"]')) {
+                const t = (el.innerText || '').trim();
+                if (t === 'Xóa bài viết' || t === 'Delete post') { el.click(); return t; }
+            }
+            const items = [...document.querySelectorAll('[role="menuitem"]')]
+                .map(m => (m.innerText || '').trim()).filter(Boolean);
+            return items.length ? 'no-delete|' + items.join(',') : null;
+        }""")
+        if deleted and not deleted.startswith('no-delete'):
+            break
+        if deleted:
+            logger.warning("[Scraper] Attempt %d: menu items=%s", attempt + 1, deleted)
 
-    if not clicked_delete:
+    if not deleted or deleted.startswith('no-delete'):
         return {"success": False, "message": "Không tìm thấy tùy chọn 'Xóa bài viết'"}
 
+    logger.info("[Scraper] Click: %s", deleted)
     await page.wait_for_timeout(2000)
 
-    confirm_selectors = [
-        'div[role="dialog"] div[aria-label="Xóa"][role="button"]',
-        'div[role="dialog"] div[role="button"]:has-text("Xóa")',
-        'div[role="dialog"] button:has-text("Xóa")',
-        'div[role="dialog"] div[role="button"]:has-text("Delete")',
-        'div[role="dialog"] button:has-text("Delete")',
-    ]
-    for sel in confirm_selectors:
-        try:
-            btn = page.locator(sel).first
-            if await btn.is_visible(timeout=3000):
-                await btn.click()
-                await page.wait_for_timeout(3000)
-                logger.info("[Scraper] Đã xóa bài: %s", post_url)
-                return {"success": True, "message": "Đã xóa bài viết"}
-        except Exception:
-            continue
+    # ── Bước 3: Click "Xóa" trong dialog xác nhận — retry 3 lần ──────────
+    confirmed = False
+    for attempt in range(3):
+        if attempt > 0:
+            await page.wait_for_timeout(1500)
+        confirmed = await page.evaluate("""() => {
+            for (const d of document.querySelectorAll('[role="dialog"]')) {
+                const btns = [...d.querySelectorAll('[role="button"], button')];
+                const texts = btns.map(b => (b.innerText || '').trim());
+                const hasCancel = texts.some(t => t === 'Hủy' || t === 'Cancel');
+                const delBtn = btns.find(b => {
+                    const t = (b.innerText || '').trim();
+                    return t === 'Xóa' || t === 'Delete';
+                });
+                if (hasCancel && delBtn) { delBtn.click(); return true; }
+            }
+            return false;
+        }""")
+        if confirmed:
+            break
+        logger.warning("[Scraper] Attempt %d: chưa thấy confirm dialog", attempt + 1)
 
-    return {"success": False, "message": "Không tìm thấy nút xác nhận xóa"}
+    if not confirmed:
+        return {"success": False, "message": "Không tìm thấy nút xác nhận 'Xóa'"}
+
+    await page.wait_for_timeout(4000)
+    logger.info("[Scraper] ✅ Đã xóa bài: %s", post_url)
+    return {"success": True, "message": "Đã xóa bài viết"}
 
 
 async def delete_posts_for_accounts(
@@ -463,7 +702,12 @@ async def delete_posts_for_accounts(
         async with async_playwright() as p:
             browser = await p.chromium.launch(
                 headless=headless,
-                args=["--disable-blink-features=AutomationControlled"],
+                args=[
+                    "--disable-blink-features=AutomationControlled",
+                    "--disable-dev-shm-usage",
+                    "--disable-gpu",
+                    "--no-sandbox",
+                ],
             )
             ctx_kwargs = {
                 "user_agent": USER_AGENT,

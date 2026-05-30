@@ -154,6 +154,7 @@ export default function PostsManager() {
   const [fetchProgress, setFetchProgress] = useState(null)
   const [fetchDone, setFetchDone] = useState(false)
   const [posts, setPosts] = useState([])
+  const [accountsMap, setAccountsMap] = useState({})
 
   const [deleting, setDeleting] = useState(false)
   const [deleteJob, setDeleteJob] = useState(null)
@@ -161,31 +162,68 @@ export default function PostsManager() {
   const [filterAccount, setFilterAccount] = useState('')
   const [filterGroup, setFilterGroup] = useState('')
   const [searchText, setSearchText] = useState('')
+  const [dateFrom, setDateFrom] = useState('')
+  const [dateTo, setDateTo] = useState('')
+  const [sortOrder, setSortOrder] = useState('newest')
   const [selPosts, setSelPosts] = useState(new Set())
+
+  // Keep accountsMap in sync when accounts list changes
+  useEffect(() => {
+    if (!accounts.length) return
+    const map = {}
+    accounts.forEach(acc => {
+      map[acc.id] = acc.name || acc.email
+      map[acc.email] = acc.name || acc.email
+    })
+    setAccountsMap(map)
+  }, [accounts])
 
   useEffect(() => {
     Promise.all([getAccounts(), getGroups(), getSavedPosts()])
       .then(([a, g, saved]) => {
-        setAccounts(a.data)
-        setGroups(g.data)
-        if (saved.data?.length) setPosts(saved.data)
+        const accs = a.data || []
+        setAccounts(accs)
+        setGroups(g.data || [])
+        const savedPosts = Array.isArray(saved.data) ? saved.data : []
+        if (savedPosts.length) {
+          setPosts(savedPosts)
+          setFetchDone(true)
+        }
       })
       .catch(() => toast.error('Không tải được dữ liệu'))
   }, [])
 
   /* derived */
   const uniqueAccounts = [
-    ...new Map(posts.map(p => [p.account_id, { id: p.account_id, label: p.account_email }])).values(),
+    ...new Map(posts.map(p => [
+      p.account_id,
+      { id: p.account_id, label: accountsMap[p.account_id] || p.account_email },
+    ])).values(),
   ]
   const uniqueGroups = [
     ...new Map(posts.map(p => [p.group_id, { id: p.group_id, label: p.group_name }])).values(),
   ]
 
-  const filtered = posts.filter(p =>
-    (!filterAccount || p.account_id === filterAccount) &&
-    (!filterGroup || p.group_id === filterGroup) &&
-    (!searchText || (p.content || '').toLowerCase().includes(searchText.toLowerCase()))
-  )
+  const filtered = posts
+    .filter(p => {
+      if (filterAccount && p.account_id !== filterAccount) return false
+      if (filterGroup && p.group_id !== filterGroup) return false
+      if (searchText && !(p.content || '').toLowerCase().includes(searchText.toLowerCase())) return false
+      if (dateFrom) {
+        const postDate = p.utime ? new Date(p.utime) : null
+        if (!postDate || postDate < new Date(dateFrom + 'T00:00:00')) return false
+      }
+      if (dateTo) {
+        const postDate = p.utime ? new Date(p.utime) : null
+        if (!postDate || postDate > new Date(dateTo + 'T23:59:59')) return false
+      }
+      return true
+    })
+    .sort((a, b) => {
+      const ta = a.utime ?? 0
+      const tb = b.utime ?? 0
+      return sortOrder === 'newest' ? tb - ta : ta - tb
+    })
 
   const filteredIds = filtered.map(p => p.id)
   const allFilteredSel = filteredIds.length > 0 && filteredIds.every(id => selPosts.has(id))
@@ -383,7 +421,10 @@ export default function PostsManager() {
             {fetchProgress.current && (
               <div style={s.progressSub}>
                 {fetchProgress.current.account_email && (
-                  <b>{fetchProgress.current.account_email}</b>
+                  <b>
+                    {accountsMap[fetchProgress.current.account_email]
+                      || fetchProgress.current.account_email}
+                  </b>
                 )}
                 {fetchProgress.current.label && (
                   <> — {fetchProgress.current.label}</>
@@ -447,10 +488,47 @@ export default function PostsManager() {
                   onChange={e => setSearchText(e.target.value)}
                 />
 
-                {(filterAccount || filterGroup || searchText) && (
+                {/* Date range */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                  <span style={{ fontSize: 12, color: '#65676b', whiteSpace: 'nowrap' }}>Từ</span>
+                  <input
+                    type="date"
+                    style={{ ...s.select, minWidth: 130 }}
+                    value={dateFrom}
+                    onChange={e => { setDateFrom(e.target.value); setSelPosts(new Set()) }}
+                  />
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                  <span style={{ fontSize: 12, color: '#65676b', whiteSpace: 'nowrap' }}>Đến</span>
+                  <input
+                    type="date"
+                    style={{ ...s.select, minWidth: 130 }}
+                    value={dateTo}
+                    onChange={e => { setDateTo(e.target.value); setSelPosts(new Set()) }}
+                  />
+                </div>
+
+                {/* Sort */}
+                <select
+                  style={{ ...s.select, minWidth: 130 }}
+                  value={sortOrder}
+                  onChange={e => setSortOrder(e.target.value)}
+                >
+                  <option value="newest">🕐 Mới nhất</option>
+                  <option value="oldest">🕑 Cũ nhất</option>
+                </select>
+
+                {(filterAccount || filterGroup || searchText || dateFrom || dateTo) && (
                   <button
                     style={s.clearBtn}
-                    onClick={() => { setFilterAccount(''); setFilterGroup(''); setSearchText('') }}
+                    onClick={() => {
+                      setFilterAccount('')
+                      setFilterGroup('')
+                      setSearchText('')
+                      setDateFrom('')
+                      setDateTo('')
+                      setSelPosts(new Set())
+                    }}
                   >
                     ✕ Xóa lọc
                   </button>
@@ -508,7 +586,9 @@ export default function PostsManager() {
                         <div style={s.postBody}>
                           <div style={s.postMeta}>
                             <span style={s.groupTag}>👥 {post.group_name}</span>
-                            <span style={s.accountTag}>👤 {post.account_email}</span>
+                            <span style={s.accountTag}>
+                              👤 {accountsMap[post.account_id] || post.account_email}
+                            </span>
                           </div>
 
                           {post.content ? (
